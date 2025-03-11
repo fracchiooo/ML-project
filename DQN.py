@@ -71,42 +71,26 @@ class FrozenLakeAgent:
             return self.action_space.sample()
         # with probability (1 - epsilon) act greedily (exploit)
         else:
-            qvalues = self.model.predict(state)
-            return int(tf.argmax(qvalues[0]))
+            return tf.argmax(self.model.predict(state)[0]) #return the index of the max valuable action
         
+    def predict(self, state):
+        return tf.argmax(self.model.predict(state)[0])
 
     def train(self, batch_size):
         # train the model
-        #minibatch = tf.random.uniform(self.reply_buffer, batch_size)
         minibatch = random.sample(self.reply_buffer, batch_size)
-        states = []
-        targets = []
-
         for new_state, reward, terminated, state, action in minibatch:
+            target = reward
+            if not terminated:
+                target += self.gamma * max(self.model.predict(new_state)[0])
 
-            #qvalues = self.model.predict(state)
-            target = self.model.predict(state, verbose=0)[0]
-            if terminated:
-                target[action] = reward
-            else:
-                next_q_values = self.model.predict(new_state, verbose=0)[0]
-                max_next_q = tf.reduce_max(next_q_values)
-                target[action] = reward + self.gamma * max_next_q
+            target_function = self.model.predict(state)
+            target_function[0][action] = target
+            self.model.fit(state, target_function, epochs=1, verbose=0)
 
-            states.append(state[0])  # Remove batch dimension
-            targets.append(target)
-        
-        # Convert lists to tensors for batch training
-        states = tf.stack(states)
-        targets = tf.stack(targets)
-        self.model.fit(states, targets, epochs=1, batch_size=batch_size, verbose=0)
-            
         self.initial_epsilon = max(self.final_epsilon, self.initial_epsilon - self.epsilon_decay)
 
-    def predict(self, state):
-        # For evaluation, just take the best action without exploration
-        q_values = self.model.predict(state, verbose=0)
-        return int(tf.argmax(q_values[0]))
+
 
     def load_model(self, name):
         self.model = load_model(f'model/{name}')
@@ -150,6 +134,51 @@ def main():
 
     # Create an instance of our agent's class
     agent = FrozenLakeAgent(env, learning_rate, start_epsilon, epsilon_decay, final_epsilon, batch_size, optimizer.Adam ,"mse", activations.relu, state_size, action_size, action_space, discount_factor)
+    
+    # Train our model
+    for episode in range(train_episodes):
+        state, _ = env.reset()
+        state = tf.convert_to_tensor(state, dtype=tf.int32)
+        state = tf.reshape(state, (1, state_size))
+
+        for step in range(max_steps):
+            action = agent.get_action(state)
+            new_state, reward, terminated, _, _ = env.step(action)
+            new_state = tf.convert_to_tensor(new_state, dtype=tf.int32)
+            new_state = tf.reshape(new_state, (1, state_size))
+            agent.add_to_reply_buffer(new_state, reward, terminated, state, action)
+            state = new_state
+
+            if terminated:
+                break
+
+        if len(agent.reply_buffer) > batch_size:
+            agent.train(batch_size)
+
+    # Render the environment in human mode to see the effective path
+    env = gym.make("CartPole-v1", render_mode="human")
+
+    # Evaluate the model
+    for episode in range(test_episodes):
+        state, _ = env.reset()
+        state = tf.convert_to_tensor(state, dtype=tf.int32)
+        state = tf.reshape(state, (1, state_size))
+
+        for step in range(max_steps):
+            action = agent.predict(state)
+            new_state, reward, terminated, _, _ = env.step(action)
+            new_state = tf.convert_to_tensor(new_state, dtype=tf.int32)
+            new_state = tf.reshape(new_state, (1, state_size))
+            state = new_state
+
+            if terminated:
+                break
+
+    env.close()
+    
+    
+    
+    
     G=0
 
     # Train our model
