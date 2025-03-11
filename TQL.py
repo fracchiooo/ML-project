@@ -184,6 +184,9 @@ def main():
     print(f"average reward over {n_episodes} episodes: {G/n_episodes}")
 
 
+    env.close()
+
+
 
 
 
