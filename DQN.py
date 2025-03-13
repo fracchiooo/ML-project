@@ -5,11 +5,11 @@ from typing import Type, Callable, Union
 import keras.api.activations as activations
 from keras.api.models import load_model
 import keras.api.optimizers as optimizer
-from keras.api.layers import Dense, Input
+from keras.api.layers import Dense, Embedding, Flatten
 from keras.api.models import Sequential
 from collections import deque
 import random
-
+import matplotlib.pyplot as plt
 
 
 class FrozenLakeAgent:
@@ -47,18 +47,20 @@ class FrozenLakeAgent:
         self.gamma = gamma     
         self.model = self.build_model()
    
-
+#TODO verify the train q learning function, maybe some of the operations are done by the nn directly
         
     def build_model(self):
         model = Sequential()
+        model.add(Embedding(input_dim=self.state_size, output_dim=self.action_size, input_length=1))
+        model.add(Flatten())
         # First layer with input shape
-        model.add(Dense(24, activation=self.activation_function, input_shape=(self.state_size,)))
+        model.add(Dense(24, activation=self.activation_function))
         model.add(Dense(24, activation=self.activation_function))
         model.add(Dense(self.action_size, activation=activations.linear))
         model.compile(loss=self.loss_function, optimizer=self.optimizer(learning_rate=self.learning_rate))
         return model
     
-    def add_to_reply_buffer(self, new_state, reward, terminated, state, action):
+    def add_to_reply_buffer(self, new_state : int, reward : float, terminated : bool, state : int, action : int):
         self.reply_buffer.append((new_state, reward, terminated, state, action))
 
     def get_action(self, state):
@@ -72,22 +74,24 @@ class FrozenLakeAgent:
             return self.action_space.sample()
         # with probability (1 - epsilon) act greedily (exploit)
         else:
-            return tf.argmax(self.model.predict(state)[0]) #return the index of the max valuable action
+            a = int(tf.argmax(self.model.predict(tf.convert_to_tensor([[state]], dtype=tf.int32), verbose=0)[0])) #return the index of the max valuable action
+            return a
         
-    def predict(self, state):
-        return tf.argmax(self.model.predict(state)[0])
+    def predict_action(self, state):
+        return int(tf.argmax(self.model.predict(tf.convert_to_tensor([[state]], dtype=tf.int32), verbose=0)[0]))
 
     def train(self, batch_size):
         # train the model
         minibatch = random.sample(self.reply_buffer, batch_size)
         for new_state, reward, terminated, state, action in minibatch:
             target = reward
-            if not terminated:
-                target += self.gamma * max(self.model.predict(new_state)[0])
+            target_function = self.model.predict(tf.convert_to_tensor([[state]], dtype=tf.int32), verbose=0) # *Q(s,a), Q[0] = Q(s,a), Q[0][a] = reward for doing the action a from state s
 
-            target_function = self.model.predict(state)
-            target_function[0][action] = target
-            self.model.fit(state, target_function, epochs=1, verbose=0)
+            if not terminated:
+                target += self.gamma * (max(self.model.predict(tf.convert_to_tensor([[new_state]], dtype=tf.int32), verbose=0)[0]) - target_function[0][action])  # (r + gamma * (max(Q(s',a')) - Q(s,a)))
+
+            target_function[0][action] += self.learning_rate*target  # Q(s,a) = Q(s,a) + alpha * (r + gamma * (max(Q(s',a')) - Q(s,a)))
+            self.model.fit(tf.convert_to_tensor([[state]], dtype=tf.int32), target_function, epochs=1, verbose=0)
 
         
 
@@ -111,6 +115,27 @@ class FrozenLakeAgent:
     def save_weights(self, name):
         self.model.save_weights(f'weights/{name}')
 
+
+
+def plot_results(results):
+    x_values = tf.range(1, tf.shape(results)[0] + 1) * 100
+    x_values = x_values.numpy()
+    results = results.numpy()
+    # Plot the data
+    plt.figure(figsize=(8, 5))
+    plt.plot(x_values, results, marker='o', linestyle='-', color='b', label="Results")
+
+    # Labels and title
+    plt.xlabel("X Axis (houndred of Episodes)")
+    plt.ylabel("Y Axis (average cumulative reward)")
+    plt.title("Results Plot")
+
+    # Show grid and legend
+    plt.grid(True)
+    plt.legend()
+
+    # Show the plot
+    plt.show()
 
 
 
@@ -142,24 +167,21 @@ def main():
     # Create an instance of our agent's class
     agent = FrozenLakeAgent(env, learning_rate, start_epsilon, epsilon_decay, final_epsilon, batch_size, optimizer.Adam ,"mse", activations.relu, state_size, action_size, action_space, discount_factor)
     G=0
+    results = []
+
 
     # Train our model
     for episode in range(1, train_episodes+1):
         state, _ = env.reset()
-        state = tf.convert_to_tensor(state, dtype=tf.int32)
-        state = tf.reshape(state, (1, state_size))
-
-        for step in range(max_steps):
+        done = False
+        print(f"episode {episode}")
+        while not done:
             action = agent.get_action(state)
-            new_state, reward, terminated, _, _ = env.step(action)
+            new_state, reward, terminated, truncated, _ = env.step(action)
             G+=reward
-            new_state = tf.convert_to_tensor(new_state, dtype=tf.int32)
-            new_state = tf.reshape(new_state, (1, state_size))
             agent.add_to_reply_buffer(new_state, reward, terminated or truncated, state, action)
             state = new_state
-
-            if terminated:
-                break
+            done = terminated or truncated
 
         if len(agent.reply_buffer) > batch_size:
             agent.train(batch_size)
@@ -167,21 +189,24 @@ def main():
         
         if episode%100==0:
             print(f"episode {episode} average over 100 rewards :{G/100}")
+            results.append(G/100)
             G=0
+
+    plot_results(tf.convert_to_tensor(results))
 
     G = 0
     # Evaluate the model
     for episode in range(test_episodes):
         state, _ = env.reset()
-        state = tf.convert_to_tensor(state, dtype=tf.int32)
-        state = tf.reshape(state, (1, state_size))
+        #state = tf.convert_to_tensor(state, dtype=tf.int32)
+        #state = tf.reshape(state, (1, state_size))
 
         for step in range(max_steps):
-            action = agent.predict(state)
+            action = agent.predict_action(state)
             new_state, reward, terminated, truncated, _ = env.step(action)
             G+=reward
-            new_state = tf.convert_to_tensor(new_state, dtype=tf.int32)
-            new_state = tf.reshape(new_state, (1, state_size))
+            #new_state = tf.convert_to_tensor(new_state, dtype=tf.int32)
+            #new_state = tf.reshape(new_state, (1, state_size))
             state = new_state
 
             if terminated or truncated:
