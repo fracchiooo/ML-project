@@ -21,7 +21,7 @@ class FrozenLakeAgent:
         # TODO to implement the decadence of the learning rate param?
 
 
-
+        self.epsilon_max = initial_epsilon
 
         self.env = env
         self.q_values = defaultdict(lambda: tf.Variable(tf.zeros(env.action_space.n))) # we use a dictionary for representing the Q-table (key=state, value= action array)
@@ -72,8 +72,11 @@ class FrozenLakeAgent:
 
 
 
-    def decay_epsilon(self):
-        self.epsilon = max(self.final_epsilon, self.epsilon - self.epsilon_decay)
+    def decay_epsilon(self, episode: int):
+        if(episode<0):
+            self.epsilon = max(self.final_epsilon, self.epsilon - self.epsilon_decay)
+        else :
+            self.epsilon = self.final_epsilon + (self.epsilon_max - self.final_epsilon) * tf.math.exp(-0.001 * episode)            
 
 
 def plot_results(results):
@@ -151,7 +154,7 @@ def main():
             print(f"episode {episode} sum of reward :{G/100}")
             results.append(G/100)
             G=0
-        agent.decay_epsilon()
+        agent.decay_epsilon(episode)
 
 
     plot_results(tf.convert_to_tensor(results))
@@ -182,6 +185,7 @@ def main():
             done = terminated or truncated
             obs = next_obs
     print(f"average reward over {n_episodes} episodes: {G/n_episodes}")
+
 
 
     env.close()

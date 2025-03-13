@@ -34,6 +34,7 @@ class FrozenLakeAgent:
         self.state_size = state_size
         self.action_size = action_size
         self.reply_buffer = deque(maxlen=100_000) # replay buffer
+        self.epsilon_max = initial_epsilon
 
         self.learning_rate = learning_rate
         self.initial_epsilon = initial_epsilon
@@ -88,7 +89,13 @@ class FrozenLakeAgent:
             target_function[0][action] = target
             self.model.fit(state, target_function, epochs=1, verbose=0)
 
-        self.initial_epsilon = max(self.final_epsilon, self.initial_epsilon - self.epsilon_decay)
+        
+
+    def decay_epsilon(self, episode: int):
+        if(episode<0):
+            self.initial_epsilon = max(self.final_epsilon, self.initial_epsilon - self.epsilon_decay)
+        else :
+            self.epsilon = self.final_epsilon + (self.final_epsilon - self.final_epsilon) * tf.math.exp(-0.001 * episode)
 
 
 
@@ -134,9 +141,10 @@ def main():
 
     # Create an instance of our agent's class
     agent = FrozenLakeAgent(env, learning_rate, start_epsilon, epsilon_decay, final_epsilon, batch_size, optimizer.Adam ,"mse", activations.relu, state_size, action_size, action_space, discount_factor)
-    
+    G=0
+
     # Train our model
-    for episode in range(train_episodes):
+    for episode in range(1, train_episodes+1):
         state, _ = env.reset()
         state = tf.convert_to_tensor(state, dtype=tf.int32)
         state = tf.reshape(state, (1, state_size))
@@ -144,9 +152,10 @@ def main():
         for step in range(max_steps):
             action = agent.get_action(state)
             new_state, reward, terminated, _, _ = env.step(action)
+            G+=reward
             new_state = tf.convert_to_tensor(new_state, dtype=tf.int32)
             new_state = tf.reshape(new_state, (1, state_size))
-            agent.add_to_reply_buffer(new_state, reward, terminated, state, action)
+            agent.add_to_reply_buffer(new_state, reward, terminated or truncated, state, action)
             state = new_state
 
             if terminated:
@@ -154,10 +163,13 @@ def main():
 
         if len(agent.reply_buffer) > batch_size:
             agent.train(batch_size)
+            agent.decay_epsilon(-1)
+        
+        if episode%100==0:
+            print(f"episode {episode} average over 100 rewards :{G/100}")
+            G=0
 
-    # Render the environment in human mode to see the effective path
-    env = gym.make("CartPole-v1", render_mode="human")
-
+    G = 0
     # Evaluate the model
     for episode in range(test_episodes):
         state, _ = env.reset()
@@ -166,79 +178,20 @@ def main():
 
         for step in range(max_steps):
             action = agent.predict(state)
-            new_state, reward, terminated, _, _ = env.step(action)
+            new_state, reward, terminated, truncated, _ = env.step(action)
+            G+=reward
             new_state = tf.convert_to_tensor(new_state, dtype=tf.int32)
             new_state = tf.reshape(new_state, (1, state_size))
             state = new_state
 
-            if terminated:
+            if terminated or truncated:
                 break
+
+    print(f"average reward over {episode} episodes: {G/test_episodes}")
 
     env.close()
     
     
-    
-    
-    G=0
-
-    # Train our model
-    for episode in range(1, train_episodes+1):
-        state, _ = env.reset()
-        #state = tf.reshape(state, [1, state_size])
-        state_one_hot = tf.one_hot([state], depth=env.observation_space.n)
-
-        for step in range(max_steps):
-            action = agent.get_action(state_one_hot)
-            new_state, reward, terminated, truncated, _ = env.step(action)
-            G+=reward
-            #new_state = tf.reshape(new_state, [1, state_size])
-            new_state_one_hot = tf.one_hot([new_state], depth=env.observation_space.n)
-
-            agent.add_to_reply_buffer(new_state_one_hot, reward, terminated or truncated, state_one_hot, action)
-            state_one_hot = new_state_one_hot
-
-            if terminated or truncated:
-                break
-
-        if len(agent.reply_buffer) > batch_size:
-            agent.train(batch_size)
-
-        if episode%100==0:
-            print(f"episode {episode} sum of reward :{G/100}")
-            G=0
-
-
-
-
-
-
-
-    # Evaluate the model
-    for episode in range(test_episodes):
-        state, _ = env.reset()
-        #state = tf.reshape(state, [1, state_size])
-        state_one_hot = tf.one_hot([state], depth=env.observation_space.n)
-
-
-        G = 0
-
-        for step in range(max_steps):
-            action = agent.get_action(state_one_hot)
-            new_state, reward, terminated, truncated, _ = env.step(action)
-            #new_state = tf.reshape(new_state, [1, state_size])
-            new_state_one_hot = tf.one_hot([new_state], depth=env.observation_space.n)
-
-            state_one_hot = new_state_one_hot
-            G+=reward
-
-            if terminated or truncated:
-                break
-        
-        print(f"episode {episode} cumulative reward is:{G}")
-
-
-
-
-
+     
 if __name__ == "__main__":
     main()
