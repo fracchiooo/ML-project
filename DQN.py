@@ -51,10 +51,8 @@ class FrozenLakeAgent:
         
     def build_model(self):
         model = Sequential()
-        model.add(Embedding(input_dim=self.state_size, output_dim=self.action_size, input_length=1))
-        model.add(Flatten())
         # First layer with input shape
-        model.add(Dense(24, activation=self.activation_function))
+        model.add(Dense(24, input_dim = 1, activation=self.activation_function))
         model.add(Dense(24, activation=self.activation_function))
         model.add(Dense(self.action_size, activation=activations.linear))
         model.compile(loss=self.loss_function, optimizer=self.optimizer(learning_rate=self.learning_rate))
@@ -173,11 +171,13 @@ def main():
     # Train our model
     for episode in range(1, train_episodes+1):
         state, _ = env.reset()
+
         done = False
         print(f"episode {episode}")
         while not done:
             action = agent.get_action(state)
             new_state, reward, terminated, truncated, _ = env.step(action)
+
             G+=reward
             agent.add_to_reply_buffer(new_state, reward, terminated or truncated, state, action)
             state = new_state
