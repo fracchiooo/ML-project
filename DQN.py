@@ -154,8 +154,8 @@ def main():
     batch_size = 20
     max_steps = 600 #dovrebbe essere di default 200
 
-    train_episodes = 1000
-    test_episodes = 100
+    train_episodes = 10000
+    test_episodes = 1000
 
     state_size = env.observation_space.n
     action_size = env.action_space.n
@@ -198,19 +198,14 @@ def main():
     # Evaluate the model
     for episode in range(test_episodes):
         state, _ = env.reset()
-        #state = tf.convert_to_tensor(state, dtype=tf.int32)
-        #state = tf.reshape(state, (1, state_size))
-
-        for step in range(max_steps):
+        done = False
+        while not done:
             action = agent.predict_action(state)
             new_state, reward, terminated, truncated, _ = env.step(action)
             G+=reward
-            #new_state = tf.convert_to_tensor(new_state, dtype=tf.int32)
-            #new_state = tf.reshape(new_state, (1, state_size))
             state = new_state
+            done = terminated or truncated
 
-            if terminated or truncated:
-                break
 
     print(f"average reward over {episode} episodes: {G/test_episodes}")
 
