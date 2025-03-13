@@ -88,9 +88,9 @@ class FrozenLakeAgent:
             target_function = self.model.predict(tf.convert_to_tensor([[state]], dtype=tf.int32), verbose=0) # *Q(s,a), Q[0] = Q(s,a), Q[0][a] = reward for doing the action a from state s
 
             if not terminated:
-                target += self.gamma * (max(self.model.predict(tf.convert_to_tensor([[new_state]], dtype=tf.int32), verbose=0)[0]) - target_function[0][action])  # (r + gamma * (max(Q(s',a')) - Q(s,a)))
+                target += self.gamma * (max(self.model.predict(tf.convert_to_tensor([[new_state]], dtype=tf.int32), verbose=0)[0])) #- target_function[0][action])  # (r + gamma * (max(Q(s',a')) - Q(s,a)))
 
-            target_function[0][action] += self.learning_rate*target  # Q(s,a) = Q(s,a) + alpha * (r + gamma * (max(Q(s',a')) - Q(s,a)))
+            target_function[0][action] = target # + target_function[0][action]) * self.learning_rate     # Q(s,a) = Q(s,a) + alpha * (r + gamma * (max(Q(s',a')) - Q(s,a)))
             self.model.fit(tf.convert_to_tensor([[state]], dtype=tf.int32), target_function, epochs=1, verbose=0)
 
         
