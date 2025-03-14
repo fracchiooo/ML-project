@@ -83,13 +83,17 @@ class FrozenLakeAgent:
         minibatch = random.sample(self.reply_buffer, batch_size)
         for new_state, reward, terminated, state, action in minibatch:
             target = reward
-            target_function = self.model.predict(tf.convert_to_tensor([[state]], dtype=tf.int32), verbose=0) # *Q(s,a), Q[0] = Q(s,a), Q[0][a] = reward for doing the action a from state s
+            q_values = self.model.predict(tf.convert_to_tensor([[state], [new_state]], dtype=tf.int32), verbose=0) 
+            target_function = q_values[0] # *Q(s,a), Q[0] = Q(s,a), Q[0][a] = reward for doing the action a from state s
+            target_function_new_state = q_values[1]
+
 
             if not terminated:
-                 target += self.gamma * (max(self.model.predict(tf.convert_to_tensor([[new_state]], dtype=tf.int32), verbose=0)[0]) - target_function[0][action])  # (r + gamma * (max(Q(s',a')) - Q(s,a)))
+                target += self.gamma * max(target_function_new_state)  
+                target -= target_function[action] # (r + gamma * max(Q(s',a')) - Q(s,a))
  
-            target_function[0][action] += self.learning_rate*target  # Q(s,a) = Q(s,a) + alpha * (r + gamma * (max(Q(s',a')) - Q(s,a)))
-            self.model.fit(tf.convert_to_tensor([[state]], dtype=tf.int32), target_function, epochs=1, verbose=0)
+            target_function[action] += self.learning_rate*target  # Q(s,a) = Q(s,a) + alpha * (r + gamma * max(Q(s',a')) - Q(s,a))
+            self.model.fit(tf.convert_to_tensor([[state]], dtype=tf.int32), tf.convert_to_tensor([target_function]), epochs=1, verbose=0)
 
         
 
