@@ -153,7 +153,7 @@ def main():
             print(f"episode {episode} sum of reward :{G/100}")
             results.append(G/100)
             G=0
-        agent.decay_epsilon(episode)
+        agent.decay_epsilon(-1)
 
 
     plot_results(tf.convert_to_tensor(results))

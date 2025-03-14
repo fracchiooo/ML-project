@@ -152,7 +152,6 @@ def main():
     epsilon_decay = (start_epsilon - final_epsilon) / n_episodes
     discount_factor = 0.95
     batch_size = 20
-    max_steps = 600 #dovrebbe essere di default 200
 
     train_episodes = 10000
     test_episodes = 1000
