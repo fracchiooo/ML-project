@@ -62,7 +62,6 @@ class FrozenLakeAgent:
         
         """Updates the Q-value of an action."""
         #self.q_values[obs][action].assign_add(self.lr * (reward + self.discount_factor * tf.reduce_max(self.q_values[next_obs]) - self.q_values[obs][action]))
-        
         # non deterministic Q-learning (off policy method, if you pick an action that maximizes the curren t expected reward)
         # converges for every alpha (step size parameter) in (0,1) also if we don't decay it
         temporal_difference = reward + self.discount_factor * tf.reduce_max(self.q_values[next_obs]) - self.q_values[obs][action]
