@@ -136,6 +136,9 @@ def plot_results(results):
     plt.grid(True)
     plt.legend()
 
+    plt.savefig("aaaaaaaaaa", dpi=300, bbox_inches='tight')
+    print(f"Plot saved")
+
     # Show the plot
     plt.show()
 
@@ -157,7 +160,7 @@ def main():
     discount_factor = 0.95
     batch_size = 20
 
-    train_episodes = 10000
+    train_episodes = n_episodes
     test_episodes = 1000
 
     state_size = env.observation_space.n
