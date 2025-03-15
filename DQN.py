@@ -5,12 +5,17 @@ from typing import Type, Callable, Union
 import keras.api.activations as activations
 from keras.api.models import load_model
 import keras.api.optimizers as optimizer
-from keras.api.layers import Dense, Embedding, Flatten
+from keras.api.layers import Dense, Embedding, Flatten, Input
 from keras.api.models import Sequential
 from collections import deque
 import random
 import matplotlib.pyplot as plt
 
+
+def one_hot_encode(state, size):
+    tensor = tf.zeros(size, dtype=tf.float32)
+    tensor = tf.tensor_scatter_nd_update(tensor, [[state]], [1.0])
+    return tf.expand_dims(tensor, axis=0)  # Shape: (1, 64)
 
 class FrozenLakeAgent:
     def __init__(
@@ -51,8 +56,10 @@ class FrozenLakeAgent:
         
     def build_model(self):
         model = Sequential()
+        model.add(Input(shape=(self.state_size,)))
+        
         # First layer with input shape
-        model.add(Dense(24, input_dim = 1, activation=self.activation_function))
+        model.add(Dense(24, activation=self.activation_function))
         model.add(Dense(24, activation=self.activation_function))
         model.add(Dense(self.action_size, activation=activations.linear))
         model.compile(loss=self.loss_function, optimizer=self.optimizer(learning_rate=self.learning_rate))
@@ -72,28 +79,28 @@ class FrozenLakeAgent:
             return self.action_space.sample()
         # with probability (1 - epsilon) act greedily (exploit)
         else:
-            a = int(tf.argmax(self.model.predict(tf.convert_to_tensor([[state]], dtype=tf.int32), verbose=0)[0])) #return the index of the max valuable action
+            a = int(tf.argmax(self.model.predict(state, verbose=0)[0])) #return the index of the max valuable action
             return a
         
     def predict_action(self, state):
-        return int(tf.argmax(self.model.predict(tf.convert_to_tensor([[state]], dtype=tf.int32), verbose=0)[0]))
+        return int(tf.argmax(self.model.predict(state, verbose=0)[0]))
 
     def train(self, batch_size):
         # train the model
         minibatch = random.sample(self.reply_buffer, batch_size)
         for new_state, reward, terminated, state, action in minibatch:
-            target = reward
-            q_values = self.model.predict(tf.convert_to_tensor([[state], [new_state]], dtype=tf.int32), verbose=0) 
+            q_values = self.model.predict(tf.concat([state, new_state], axis=0), verbose=0) 
             target_function = q_values[0] # *Q(s,a), Q[0] = Q(s,a), Q[0][a] = reward for doing the action a from state s
             target_function_new_state = q_values[1]
 
-
             if not terminated:
-                target += self.gamma * max(target_function_new_state)  
-                target -= target_function[action] # (r + gamma * max(Q(s',a')) - Q(s,a))
- 
-            target_function[action] += self.learning_rate*target  # Q(s,a) = Q(s,a) + alpha * (r + gamma * max(Q(s',a')) - Q(s,a))
-            self.model.fit(tf.convert_to_tensor([[state]], dtype=tf.int32), tf.convert_to_tensor([target_function]), epochs=1, verbose=0)
+                target = reward + self.gamma * max(target_function_new_state)
+            else:
+                target = reward
+
+            target_function[action] += self.learning_rate * (target - target_function[action])  # Q(s,a) = Q(s,a) + alpha * (r + gamma * max(Q(s',a')) - Q(s,a))
+
+            self.model.fit(state, tf.convert_to_tensor([target_function]), epochs=1, verbose=0)
 
         
 
@@ -144,6 +151,7 @@ def plot_results(results):
 
 
 
+
 def main():
     # Setup environment and agent parameters
 
@@ -153,7 +161,7 @@ def main():
     #desc= ... : for addressing a random map to the environment
     env = gym.make("FrozenLake-v1", render_mode=None, desc=None, map_name="8x8", is_slippery=True)
     learning_rate = 0.1
-    n_episodes = 10_000
+    n_episodes = 5_000
     start_epsilon = 1.0
     final_epsilon = 0.01
     epsilon_decay = (start_epsilon - final_epsilon) / n_episodes
@@ -177,12 +185,15 @@ def main():
     # Train our model
     for episode in range(1, train_episodes+1):
         state, _ = env.reset()
+        state = one_hot_encode(state, state_size)
 
         done = False
         print(f"episode {episode}")
         while not done:
             action = agent.get_action(state)
             new_state, reward, terminated, truncated, _ = env.step(action)
+
+            new_state = one_hot_encode(new_state, state_size)
 
             G+=reward
             agent.add_to_reply_buffer(new_state, reward, terminated or truncated, state, action)
@@ -204,10 +215,13 @@ def main():
     # Evaluate the model
     for episode in range(test_episodes):
         state, _ = env.reset()
+        state = one_hot_encode(state, state_size)
         done = False
         while not done:
             action = agent.predict_action(state)
             new_state, reward, terminated, truncated, _ = env.step(action)
+
+            new_state = one_hot_encode(new_state, state_size)
             G+=reward
             state = new_state
             done = terminated or truncated
