@@ -160,16 +160,16 @@ def main():
     #is_slippery=True: If true the player will move in intended direction with probability of 1/3 else will move in either perpendicular direction with equal probability of 1/3 in both directions.
     #desc= ... : for addressing a random map to the environment
     env = gym.make("FrozenLake-v1", render_mode=None, desc=None, map_name="8x8", is_slippery=True)
-    learning_rate = 0.1
-    n_episodes = 5_000
+    learning_rate = 0.0005
+    n_episodes = 10_000
     start_epsilon = 1.0
-    final_epsilon = 0.01
+    final_epsilon = 0.05
     epsilon_decay = (start_epsilon - final_epsilon) / n_episodes
-    discount_factor = 0.95
-    batch_size = 20
+    discount_factor = 0.98
+    batch_size = 64
 
     train_episodes = n_episodes
-    test_episodes = 1000
+    test_episodes = 500
 
     state_size = env.observation_space.n
     action_size = env.action_space.n
@@ -205,7 +205,7 @@ def main():
             agent.decay_epsilon(-1)
         
         if episode%100==0:
-            print(f"episode {episode} average over 100 rewards :{G/100}")
+            print(f"episode {episode} sum over 100 rewards :{G}")
             results.append(G/100)
             G=0
 
@@ -227,7 +227,7 @@ def main():
             done = terminated or truncated
 
 
-    print(f"average reward over {episode} episodes: {G/test_episodes}")
+    print(f"average sum over {episode} episodes: {G}")
 
     env.close()
     

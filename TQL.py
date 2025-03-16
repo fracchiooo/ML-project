@@ -150,7 +150,7 @@ def main():
             obs = next_obs
 
         if episode%100==0:
-            print(f"episode {episode} sum of reward :{G/100}")
+            print(f"episode {episode} sum of reward :{G}")
             results.append(G/100)
             G=0
         agent.decay_epsilon(-1)
