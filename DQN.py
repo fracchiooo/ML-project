@@ -79,11 +79,12 @@ class FrozenLakeAgent:
             return self.action_space.sample()
         # with probability (1 - epsilon) act greedily (exploit)
         else:
-            a = int(tf.argmax(self.model.predict(state, verbose=0)[0])) #return the index of the max valuable action
-            return a
+            q_t = self.model.predict(state, verbose=0)[0] #return the index of the max valuable action
+            return tf.argmax(q_t)
         
     def predict_action(self, state):
-        return int(tf.argmax(self.model.predict(state, verbose=0)[0]))
+        q_t = self.model.predict(state, verbose=0)[0] #return the index of the max valuable action
+        return tf.argmax(q_t)
 
     def train(self, batch_size):
         # train the model
@@ -143,7 +144,7 @@ def plot_results(results):
     plt.grid(True)
     plt.legend()
 
-    plt.savefig("aaaaaaaaaa", dpi=300, bbox_inches='tight')
+    plt.savefig("bbb", dpi=300, bbox_inches='tight')
     print(f"Plot saved")
 
     # Show the plot
@@ -209,7 +210,8 @@ def main():
             results.append(G/100)
             G=0
 
-    plot_results(tf.convert_to_tensor(results))
+    agent.save_weights("model1")
+
 
     G = 0
     # Evaluate the model
@@ -228,6 +230,7 @@ def main():
 
 
     print(f"average sum over {episode} episodes: {G}")
+    plot_results(tf.convert_to_tensor(results))
 
     env.close()
     
