@@ -10,7 +10,8 @@ from keras.api.models import Sequential
 from collections import deque
 import random
 import matplotlib.pyplot as plt
-
+import os
+os.environ['TF_GPU_ALLOCATOR'] = 'cuda_malloc_async'
 
 def one_hot_encode(state, size):
     tensor = tf.zeros(size, dtype=tf.float32)
@@ -155,7 +156,9 @@ def plot_results(results):
 def main():
     # Setup environment and agent parameters
 
-    print("GPU devices available:", tf.config.list_physical_devices('GPU'))
+    print("TensorFlow version:", tf.__version__)
+    print("Num GPUs Available:", len(tf.config.list_physical_devices('GPU')))
+    print("GPU devices:", tf.config.list_physical_devices('GPU'))
 
     #is_slippery=True: If true the player will move in intended direction with probability of 1/3 else will move in either perpendicular direction with equal probability of 1/3 in both directions.
     #desc= ... : for addressing a random map to the environment
