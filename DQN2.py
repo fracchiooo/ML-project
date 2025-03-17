@@ -136,7 +136,10 @@ class FrozenLakeAgent:
         
         # Aggiorna solo i valori delle azioni selezionate
         for i in range(self.batch_size):
-            target_values[i, actions[i]] = rewards[i] + (1 - terminated[i]) * self.gamma * max_next_q[i]
+            current_q = target_values[i, actions[i]]
+            target_q = rewards[i] + (1 - terminated[i]) * self.gamma * max_next_q[i]
+            target_values[i, actions[i]] = current_q + self.learning_rate * (target_q - current_q)
+            #target_values[i, actions[i]] = rewards[i] + (1 - terminated[i]) * self.gamma * max_next_q[i]
         
         # Training più efficiente
         self.model.fit(states, target_values, epochs=1, verbose=0, batch_size=self.batch_size)
