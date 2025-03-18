@@ -58,23 +58,24 @@ class FrozenLakeAgent:
         self.gamma = gamma
         
         # Crea il modello con ottimizzazioni
-        self.model = self.build_model(optimizer_class, loss_function, activation_function)
+        self.model = self.build_model(optimizer_class(learning_rate=0.001), loss_function, activation_function)
 
     def build_model(self, optimizer_class, loss_function, activation_function):
         # Definizione esplicita degli input shape
         model = tf.keras.Sequential([
             tf.keras.layers.InputLayer(input_shape=(self.state_size,)),
-            tf.keras.layers.Dense(24, activation=activation_function),
-            tf.keras.layers.Dense(24, activation=activation_function),
+            tf.keras.layers.Dense(12, activation=activation_function),
+            tf.keras.layers.Dense(12, activation=activation_function),
             tf.keras.layers.Dense(self.action_size, activation='linear')
         ])
         
         # Compilazione con ottimizzazioni
-        optimizer_instance = optimizer_class(learning_rate=self.learning_rate)
+        #optimizer_instance = optimizer_class()
+        #optimizer_instance.learning_rate=self.learning_rate #TODO make the param to pass
         
         model.compile(
             loss=loss_function,
-            optimizer=optimizer_instance
+            optimizer=tf.keras.optimizers.Adam(learning_rate=0.001)
         )
         
         # Verifica che il modello funzioni con un input di esempio
@@ -188,14 +189,14 @@ def main():
     print("GPU devices:", tf.config.list_physical_devices('GPU'))
     
     # Impostazioni iniziali
-    env = gym.make("FrozenLake-v1", render_mode=None, desc=None, map_name="8x8", is_slippery=True)
-    learning_rate = 0.001  # Leggermente aumentato per convergenza più rapida
+    env = gym.make("FrozenLake-v1", render_mode=None, desc=None, map_name="4x4", is_slippery=True)
+    learning_rate = 0.1  # Leggermente aumentato per convergenza più rapida
     n_episodes = 10_000
     start_epsilon = 1.0
     final_epsilon = 0.05
-    epsilon_decay = (start_epsilon - final_epsilon) / n_episodes
-    discount_factor = 0.98
-    batch_size = 128  # Aumentato per migliore utilizzo della GPU
+    epsilon_decay = ((start_epsilon - final_epsilon)*2) / n_episodes
+    discount_factor = 0.99
+    batch_size = 64  # Aumentato per migliore utilizzo della GPU
     
     train_episodes = n_episodes
     test_episodes = 500
@@ -268,7 +269,7 @@ def main():
     print(f"Training completato in {total_training_time:.2f} secondi")
     
     # Salva il modello
-    agent.save_weights("model_optimized")
+    #agent.save_weights("model_optimized")
     
     # Valutazione
     print("\nInizio valutazione...")
