@@ -4,6 +4,7 @@ from collections import defaultdict
 from tqdm import tqdm
 import matplotlib.pyplot as plt
 from gymnasium.envs.toy_text.frozen_lake import generate_random_map
+import numpy as np
 
 
 
@@ -71,32 +72,43 @@ class FrozenLakeAgent:
 
 
 
-    def decay_epsilon(self, episode: int):
-        if(episode<0):
-            self.epsilon = max(self.final_epsilon, self.epsilon - self.epsilon_decay)
-        else :
-            self.epsilon = self.final_epsilon + (self.epsilon_max - self.final_epsilon) * tf.math.exp(-0.001 * episode)            
+    def decay_epsilon(self):
+        self.epsilon = max(self.final_epsilon, self.epsilon - self.epsilon_decay)       
 
 
-def plot_results(results):
-    x_values = tf.range(1, tf.shape(results)[0] + 1) * 100
-    x_values = x_values.numpy()
-    results = results.numpy()
-    # Plot the data
-    plt.figure(figsize=(8, 5))
-    plt.plot(x_values, results, marker='o', linestyle='-', color='b', label="Results")
+def plot_results(results, epsilon_values, filename):
+    plt.figure(figsize=(10, 6))
+    
+    # Creazione del grafico principale per reward medio
+    x_values = np.arange(1, len(results) + 1) * 100
+    plt.plot(x_values, results, marker='o', linestyle='-', color='b', label="Media ricompense ogni 100 episodi")
+    
+    # Configura asse y primario
+    plt.xlabel("Episodi")
+    plt.ylabel("Ricompensa media", color='b')
+    plt.tick_params(axis='y', labelcolor='b')
+    plt.grid(True, alpha=0.3)
+    
+    # Creazione asse y secondario per epsilon
+    ax2 = plt.twinx()
+    ax2.set_ylabel('Valore Epsilon', color='r')
+    ax2.tick_params(axis='y', labelcolor='r')
+    ax2.set_ylim(0, 1.1)  # Range per epsilon (da 0 a 1.1 per una migliore visualizzazione)
+    
+    # Disegna epsilon come colonnine solo ai punti corrispondenti
+    for i in range(len(epsilon_values)):
+        x = x_values[i]  # Episodio corrispondente
+        eps = epsilon_values[i]  # Valore di epsilon per quel punto
+        ax2.plot([x, x], [0, eps], color='r', linewidth=2, alpha=0.7)  # Linea verticale
+        ax2.text(x, eps + 0.03, f'ε={eps:.2f}', ha='center', color='r', fontsize=8)  # Testo sopra la linea
 
-    # Labels and title
-    plt.xlabel("X Axis (houndred of Episodes)")
-    plt.ylabel("Y Axis (average cumulative reward)")
-    plt.title("Results Plot")
-
-    # Show grid and legend
-    plt.grid(True)
-    plt.legend()
-
-    # Show the plot
+    
+    plt.title("Andamento dell'apprendimento e decadimento di Epsilon")
+    plt.tight_layout()
+    plt.savefig(filename+".png", dpi=300, bbox_inches='tight')
+    print(f"Plot salvato come "+filename+".png")
     plt.show()
+
 
 
 
@@ -109,12 +121,14 @@ def main():
  
 
     learning_rate = 0.1
-    n_episodes = 10_000
+    n_episodes = 15_000
     start_epsilon = 1.0
-    final_epsilon = 0.01
-    epsilon_decay = (start_epsilon - final_epsilon) / n_episodes
+    final_epsilon = 0.05
+    epsilon_episode_stop = int(n_episodes*4/5)
+    epsilon_decay = (start_epsilon - final_epsilon) / epsilon_episode_stop
     discount_factor = 0.99
 
+    filename = "TQL;lr="+str(learning_rate)+";nep="+str(n_episodes)+";eps="+str(start_epsilon)+";fineps="+str(final_epsilon)+";eps_dec="+str(epsilon_decay)+";gam="+str(discount_factor)
 
 
     n_states=env.observation_space.n
@@ -131,6 +145,7 @@ def main():
     )
 
 
+    epsilon_values = []
     G=0
     results = []
     for episode in range(1, n_episodes+1):
@@ -149,14 +164,18 @@ def main():
             done = terminated or truncated
             obs = next_obs
 
+        agent.decay_epsilon()
+
         if episode%100==0:
-            print(f"episode {episode} sum of reward :{G}")
+            print(f"Episodio {episode}/{n_episodes} - Ricompensa media: {G/100:.4f} - Epsilon: {agent.epsilon:.4f}")
+
+            epsilon_values.append(agent.epsilon)
             results.append(G/100)
             G=0
-        agent.decay_epsilon(-1)
 
 
-    plot_results(tf.convert_to_tensor(results))
+    plot_results(np.array(results), np.array(epsilon_values), filename)
+
     
     
     

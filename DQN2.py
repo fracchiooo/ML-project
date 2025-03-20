@@ -152,34 +152,66 @@ class FrozenLakeAgent:
     def save_weights(self, name):
         # Assicurati che la cartella esista
         os.makedirs('weights', exist_ok=True)
-        self.model.save_weights(f'weights/{name}')
+        
+        # Aggiungi l'estensione .keras se non è già presente
+        if not name.endswith('.keras') and not name.endswith('.h5'):
+            name = f"{name}.keras"
+        
+        # Salva il modello completo con l'estensione corretta
+        self.model.save(f'weights/{name}')
+        print(f"Modello salvato con successo in weights/{name}")
 
     def load_weights(self, name):
-        self.model.load_weights(f'weights/{name}')
+        # Aggiungi l'estensione .keras se non è già presente
+        if not name.endswith('.keras') and not name.endswith('.h5'):
+            keras_name = f"{name}.keras"
+            h5_name = f"{name}.h5"
+        else:
+            keras_name = name
+            h5_name = name
+        
+        # Prova a caricare con estensione .keras
+        if os.path.exists(f'weights/{keras_name}'):
+            self.model = tf.keras.models.load_model(f'weights/{keras_name}')
+            print(f"Modello caricato con successo da weights/{keras_name}")
+        # Altrimenti prova con .h5
+        elif os.path.exists(f'weights/{h5_name}'):
+            self.model = tf.keras.models.load_model(f'weights/{h5_name}')
+            print(f"Modello caricato con successo da weights/{h5_name}")
+        else:
+            print(f"Attenzione: modello {name} non trovato")
 
-def plot_results(results, episode_times):
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 6))
+def plot_results(results, epsilon_values, filename):
+    plt.figure(figsize=(10, 6))
     
-    # Plot delle performance
+    # Creazione del grafico principale per reward medio
     x_values = np.arange(1, len(results) + 1) * 100
-    ax1.plot(x_values, results, marker='o', linestyle='-', color='b', label="Media ricompense ogni 100 episodi")
-    ax1.set_xlabel("Episodi")
-    ax1.set_ylabel("Ricompensa media")
-    ax1.set_title("Andamento dell'apprendimento")
-    ax1.grid(True)
-    ax1.legend()
+    plt.plot(x_values, results, marker='o', linestyle='-', color='b', label="Media ricompense ogni 100 episodi")
     
-    # Plot dei tempi di calcolo
-    ax2.plot(x_values, episode_times, marker='s', linestyle='-', color='r', label="Tempo per 100 episodi (s)")
-    ax2.set_xlabel("Episodi")
-    ax2.set_ylabel("Tempo (secondi)")
-    ax2.set_title("Prestazioni computazionali")
-    ax2.grid(True)
-    ax2.legend()
+    # Configura asse y primario
+    plt.xlabel("Episodi")
+    plt.ylabel("Ricompensa media", color='b')
+    plt.tick_params(axis='y', labelcolor='b')
+    plt.grid(True, alpha=0.3)
     
+    # Creazione asse y secondario per epsilon
+    ax2 = plt.twinx()
+    ax2.set_ylabel('Valore Epsilon', color='r')
+    ax2.tick_params(axis='y', labelcolor='r')
+    ax2.set_ylim(0, 1.1)  # Range per epsilon (da 0 a 1.1 per una migliore visualizzazione)
+    
+    # Disegna epsilon come colonnine solo ai punti corrispondenti
+    for i in range(len(epsilon_values)):
+        x = x_values[i]  # Episodio corrispondente
+        eps = epsilon_values[i]  # Valore di epsilon per quel punto
+        ax2.plot([x, x], [0, eps], color='r', linewidth=2, alpha=0.7)  # Linea verticale
+        ax2.text(x, eps + 0.03, f'ε={eps:.2f}', ha='center', color='r', fontsize=8)  # Testo sopra la linea
+
+    
+    plt.title("Andamento dell'apprendimento e decadimento di Epsilon")
     plt.tight_layout()
-    plt.savefig("training_results.png", dpi=300, bbox_inches='tight')
-    print(f"Plot salvato come training_results.png")
+    plt.savefig(filename+".png", dpi=300, bbox_inches='tight')
+    print(f"Plot salvato come "+filename+".png")
     plt.show()
 
 def main():
@@ -191,15 +223,20 @@ def main():
     # Impostazioni iniziali
     env = gym.make("FrozenLake-v1", render_mode=None, desc=None, map_name="4x4", is_slippery=True)
     learning_rate = 0.1  # Leggermente aumentato per convergenza più rapida
-    n_episodes = 10_000
+    n_episodes = 15_000
     start_epsilon = 1.0
     final_epsilon = 0.05
-    epsilon_decay = ((start_epsilon - final_epsilon)*3/2) / n_episodes
+    
+    epsilon_episode_stop = int(n_episodes*4/5)
+    epsilon_decay = (start_epsilon - final_epsilon) / epsilon_episode_stop
+    
     discount_factor = 0.99
     batch_size = 64  # Aumentato per migliore utilizzo della GPU
     
     train_episodes = n_episodes
     test_episodes = 500
+
+    filename = "DQN;lr="+str(learning_rate)+";nep="+str(n_episodes)+";eps="+str(start_epsilon)+";fineps="+str(final_epsilon)+";eps_dec="+str(epsilon_decay)+";gam="+str(discount_factor)
     
     state_size = env.observation_space.n
     action_size = env.action_space.n
@@ -215,8 +252,7 @@ def main():
     # Metriche per monitoraggio
     cumulative_reward = 0
     results = []
-    episode_times = []
-    all_rewards = []
+    epsilon_values = []  # Lista per tenere traccia dei valori di epsilon
     training_start_time = time.time()
     
     # Processo di training
@@ -252,13 +288,12 @@ def main():
         # Training su batch
         agent.train()
         agent.decay_epsilon()
-        all_rewards.append(episode_reward)
         
         # Stampa progress e salva metriche ogni 100 episodi
         if episode % 100 == 0:
             batch_time = time.time() - batch_start_time
-            episode_times.append(batch_time)
             results.append(cumulative_reward / 100)
+            epsilon_values.append(agent.epsilon)  # Salva il valore corrente di epsilon
             
             print(f"Episodio {episode}/{train_episodes} - Ricompensa media: {cumulative_reward/100:.4f} - Epsilon: {agent.epsilon:.4f} - Tempo: {batch_time:.2f}s")
             
@@ -269,7 +304,7 @@ def main():
     print(f"Training completato in {total_training_time:.2f} secondi")
     
     # Salva il modello
-    #agent.save_weights("model_optimized")
+    agent.save_weights(filename+"_model")
     
     # Valutazione
     print("\nInizio valutazione...")
@@ -292,8 +327,8 @@ def main():
     
     print(f"Media ricompense su {test_episodes} episodi di test: {test_rewards/test_episodes:.4f}")
     
-    # Visualizza risultati
-    plot_results(np.array(results), np.array(episode_times))
+    # Visualizza risultati con il nuovo grafico
+    plot_results(np.array(results), np.array(epsilon_values), filename)
     
     env.close()
 
