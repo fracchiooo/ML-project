@@ -194,25 +194,27 @@ def plot_results(results, epsilon_values, filename):
     plt.tick_params(axis='y', labelcolor='b')
     plt.grid(True, alpha=0.3)
     
+    # Imposta esplicitamente i tick dell'asse x per mostrare tutti gli episodi
+    plt.xticks(np.arange(min(x_values), max(x_values)+1, 100))
+    
     # Creazione asse y secondario per epsilon
     ax2 = plt.twinx()
     ax2.set_ylabel('Valore Epsilon', color='r')
     ax2.tick_params(axis='y', labelcolor='r')
-    ax2.set_ylim(0, 1.1)  # Range per epsilon (da 0 a 1.1 per una migliore visualizzazione)
+    ax2.set_ylim(0, 1.1)  # Range per epsilon
     
-    # Disegna epsilon come colonnine solo ai punti corrispondenti
-    for i in range(len(epsilon_values)):
-        x = x_values[i]  # Episodio corrispondente
-        eps = epsilon_values[i]  # Valore di epsilon per quel punto
-        ax2.plot([x, x], [0, eps], color='r', linewidth=2, alpha=0.7)  # Linea verticale
-        ax2.text(x, eps + 0.03, f'ε={eps:.2f}', ha='center', color='r', fontsize=8)  # Testo sopra la linea
-
+    # Disegna epsilon come colonnine solo ai punti campionati x_values
+    for i, (x, eps) in enumerate(zip(x_values, epsilon_values)):
+        ax2.plot([x, x], [0, eps], color='r', linewidth=2, alpha=0.7)
+        ax2.text(x, eps + 0.03, f'ε={eps:.2f}', ha='center', color='r', fontsize=8)
     
     plt.title("Andamento dell'apprendimento e decadimento di Epsilon")
     plt.tight_layout()
     plt.savefig(filename+".png", dpi=300, bbox_inches='tight')
     print(f"Plot salvato come "+filename+".png")
     plt.show()
+
+    
 
 def main():
     # Informazioni sul sistema

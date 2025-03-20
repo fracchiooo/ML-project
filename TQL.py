@@ -89,19 +89,19 @@ def plot_results(results, epsilon_values, filename):
     plt.tick_params(axis='y', labelcolor='b')
     plt.grid(True, alpha=0.3)
     
+    # Imposta esplicitamente i tick dell'asse x per mostrare tutti gli episodi
+    plt.xticks(np.arange(min(x_values), max(x_values)+1, 100))
+    
     # Creazione asse y secondario per epsilon
     ax2 = plt.twinx()
     ax2.set_ylabel('Valore Epsilon', color='r')
     ax2.tick_params(axis='y', labelcolor='r')
-    ax2.set_ylim(0, 1.1)  # Range per epsilon (da 0 a 1.1 per una migliore visualizzazione)
+    ax2.set_ylim(0, 1.1)  # Range per epsilon
     
-    # Disegna epsilon come colonnine solo ai punti corrispondenti
-    for i in range(len(epsilon_values)):
-        x = x_values[i]  # Episodio corrispondente
-        eps = epsilon_values[i]  # Valore di epsilon per quel punto
-        ax2.plot([x, x], [0, eps], color='r', linewidth=2, alpha=0.7)  # Linea verticale
-        ax2.text(x, eps + 0.03, f'ε={eps:.2f}', ha='center', color='r', fontsize=8)  # Testo sopra la linea
-
+    # Disegna epsilon come colonnine solo ai punti campionati x_values
+    for i, (x, eps) in enumerate(zip(x_values, epsilon_values)):
+        ax2.plot([x, x], [0, eps], color='r', linewidth=2, alpha=0.7)
+        ax2.text(x, eps + 0.03, f'ε={eps:.2f}', ha='center', color='r', fontsize=8)
     
     plt.title("Andamento dell'apprendimento e decadimento di Epsilon")
     plt.tight_layout()
@@ -117,7 +117,7 @@ def main():
 
     #is_slippery=True: If true the player will move in intended direction with probability of 1/3 else will move in either perpendicular direction with equal probability of 1/3 in both directions.
     #desc= ... : for addressing a random map to the environment
-    env = gym.make("FrozenLake-v1", render_mode=None, desc=None, map_name="8x8", is_slippery=True)
+    env = gym.make("FrozenLake-v1", render_mode=None, desc=None, map_name="4x4", is_slippery=True)
  
 
     learning_rate = 0.1
@@ -168,7 +168,6 @@ def main():
 
         if episode%100==0:
             print(f"Episodio {episode}/{n_episodes} - Ricompensa media: {G/100:.4f} - Epsilon: {agent.epsilon:.4f}")
-
             epsilon_values.append(agent.epsilon)
             results.append(G/100)
             G=0
@@ -182,7 +181,7 @@ def main():
     
     
     Q = agent.q_values
-    n_episodes=1000
+    n_episodes=500
     G=0
     # testing the Q-table
     for episode in range(1, n_episodes+1):
