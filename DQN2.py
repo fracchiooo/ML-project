@@ -194,7 +194,7 @@ def main():
     n_episodes = 10_000
     start_epsilon = 1.0
     final_epsilon = 0.05
-    epsilon_decay = ((start_epsilon - final_epsilon)*2) / n_episodes
+    epsilon_decay = ((start_epsilon - final_epsilon)*3/2) / n_episodes
     discount_factor = 0.99
     batch_size = 64  # Aumentato per migliore utilizzo della GPU
     
