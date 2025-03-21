@@ -1,7 +1,6 @@
 import tensorflow as tf
 import gymnasium as gym
 from collections import defaultdict
-from tqdm import tqdm
 import matplotlib.pyplot as plt
 from gymnasium.envs.toy_text.frozen_lake import generate_random_map
 import numpy as np
@@ -77,33 +76,33 @@ class FrozenLakeAgent:
 
 
 def plot_results(results, epsilon_values, filename):
-    plt.figure(figsize=(10, 6))
+    plt.figure(figsize=(24, 10))  # Grafico molto più ampio
     
     # Creazione del grafico principale per reward medio
-    x_values = np.arange(1, len(results) + 1) * 100
+    x_values = np.arange(1, len(results) + 1) * 250
     plt.plot(x_values, results, marker='o', linestyle='-', color='b', label="Media ricompense ogni 100 episodi")
     
     # Configura asse y primario
     plt.xlabel("Episodi")
-    plt.ylabel("Ricompensa media", color='b')
-    plt.tick_params(axis='y', labelcolor='b')
+    plt.ylabel("Ricompensa media", color='b', fontsize=14)
+    plt.tick_params(axis='y', labelcolor='b', labelsize=12)
     plt.grid(True, alpha=0.3)
     
     # Imposta esplicitamente i tick dell'asse x per mostrare tutti gli episodi
-    plt.xticks(np.arange(min(x_values), max(x_values)+1, 100))
+    plt.xticks(np.arange(min(x_values), max(x_values)+1, 250), fontsize=5)
     
     # Creazione asse y secondario per epsilon
     ax2 = plt.twinx()
-    ax2.set_ylabel('Valore Epsilon', color='r')
-    ax2.tick_params(axis='y', labelcolor='r')
+    ax2.set_ylabel('Valore Epsilon', color='r',  fontsize=14)
+    ax2.tick_params(axis='y', labelcolor='r', labelsize=12)
     ax2.set_ylim(0, 1.1)  # Range per epsilon
     
     # Disegna epsilon come colonnine solo ai punti campionati x_values
     for i, (x, eps) in enumerate(zip(x_values, epsilon_values)):
-        ax2.plot([x, x], [0, eps], color='r', linewidth=2, alpha=0.7)
-        ax2.text(x, eps + 0.03, f'ε={eps:.2f}', ha='center', color='r', fontsize=8)
+        ax2.plot([x, x], [0, eps], color='r', linewidth=1, alpha=0.3)
+        ax2.text(x, eps + 0.03, f'ε={eps:.2f}', ha='center', color='r', fontsize=5)
     
-    plt.title("Andamento dell'apprendimento e decadimento di Epsilon")
+    plt.title("Andamento dell'apprendimento e decadimento di Epsilon", fontsize=16)
     plt.tight_layout()
     plt.savefig(filename+".png", dpi=300, bbox_inches='tight')
     print(f"Plot salvato come "+filename+".png")
@@ -124,7 +123,7 @@ def main():
     n_episodes = 15_000
     start_epsilon = 1.0
     final_epsilon = 0.05
-    epsilon_episode_stop = int(n_episodes*4/5)
+    epsilon_episode_stop = int(n_episodes*7/8)
     epsilon_decay = (start_epsilon - final_epsilon) / epsilon_episode_stop
     discount_factor = 0.99
 
@@ -166,10 +165,10 @@ def main():
 
         agent.decay_epsilon()
 
-        if episode%100==0:
-            print(f"Episodio {episode}/{n_episodes} - Ricompensa media: {G/100:.4f} - Epsilon: {agent.epsilon:.4f}")
+        if episode%250==0:
+            print(f"Episodio {episode}/{n_episodes} - Ricompensa media: {G/250:.4f} - Epsilon: {agent.epsilon:.4f}")
             epsilon_values.append(agent.epsilon)
-            results.append(G/100)
+            results.append(G/250)
             G=0
 
 

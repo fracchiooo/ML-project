@@ -27,7 +27,6 @@ class FrozenLakeAgent:
         epsilon_decay: float,
         final_epsilon: float,
         batch_size: int,
-        optimizer_class: Type[tf.keras.optimizers.Optimizer],
         loss_function: str,
         activation_function: Union[str, Callable],
         state_size: int,
@@ -58,7 +57,7 @@ class FrozenLakeAgent:
         self.gamma = gamma
         
         # Crea il modello con ottimizzazioni
-        self.model = self.build_model(optimizer_class(learning_rate=0.001), loss_function, activation_function)
+        self.model = self.build_model(tf.keras.optimizers.Adam(learning_rate=0.001), loss_function, activation_function)
 
     def build_model(self, optimizer_class, loss_function, activation_function):
         # Definizione esplicita degli input shape
@@ -70,17 +69,11 @@ class FrozenLakeAgent:
         ])
         
         # Compilazione con ottimizzazioni
-        #optimizer_instance = optimizer_class()
-        #optimizer_instance.learning_rate=self.learning_rate #TODO make the param to pass
         
         model.compile(
             loss=loss_function,
             optimizer=tf.keras.optimizers.Adam(learning_rate=0.001)
         )
-        
-        # Verifica che il modello funzioni con un input di esempio
-        test_input = np.zeros((1, self.state_size), dtype=np.float32)
-        _ = model.predict(test_input, verbose=0)
         
         return model
     
@@ -182,33 +175,33 @@ class FrozenLakeAgent:
             print(f"Attenzione: modello {name} non trovato")
 
 def plot_results(results, epsilon_values, filename):
-    plt.figure(figsize=(10, 6))
+    plt.figure(figsize=(24, 10))  # Grafico molto più ampio
     
     # Creazione del grafico principale per reward medio
-    x_values = np.arange(1, len(results) + 1) * 100
+    x_values = np.arange(1, len(results) + 1) * 250
     plt.plot(x_values, results, marker='o', linestyle='-', color='b', label="Media ricompense ogni 100 episodi")
     
     # Configura asse y primario
     plt.xlabel("Episodi")
-    plt.ylabel("Ricompensa media", color='b')
-    plt.tick_params(axis='y', labelcolor='b')
+    plt.ylabel("Ricompensa media", color='b', fontsize=14)
+    plt.tick_params(axis='y', labelcolor='b', labelsize=12)
     plt.grid(True, alpha=0.3)
     
     # Imposta esplicitamente i tick dell'asse x per mostrare tutti gli episodi
-    plt.xticks(np.arange(min(x_values), max(x_values)+1, 100))
+    plt.xticks(np.arange(min(x_values), max(x_values)+1, 250), fontsize=5)
     
     # Creazione asse y secondario per epsilon
     ax2 = plt.twinx()
-    ax2.set_ylabel('Valore Epsilon', color='r')
-    ax2.tick_params(axis='y', labelcolor='r')
+    ax2.set_ylabel('Valore Epsilon', color='r',  fontsize=14)
+    ax2.tick_params(axis='y', labelcolor='r', labelsize=12)
     ax2.set_ylim(0, 1.1)  # Range per epsilon
     
     # Disegna epsilon come colonnine solo ai punti campionati x_values
     for i, (x, eps) in enumerate(zip(x_values, epsilon_values)):
-        ax2.plot([x, x], [0, eps], color='r', linewidth=2, alpha=0.7)
-        ax2.text(x, eps + 0.03, f'ε={eps:.2f}', ha='center', color='r', fontsize=8)
+        ax2.plot([x, x], [0, eps], color='r', linewidth=1, alpha=0.3)
+        ax2.text(x, eps + 0.03, f'ε={eps:.2f}', ha='center', color='r', fontsize=5)
     
-    plt.title("Andamento dell'apprendimento e decadimento di Epsilon")
+    plt.title("Andamento dell'apprendimento e decadimento di Epsilon", fontsize=16)
     plt.tight_layout()
     plt.savefig(filename+".png", dpi=300, bbox_inches='tight')
     print(f"Plot salvato come "+filename+".png")
@@ -229,7 +222,7 @@ def main():
     start_epsilon = 1.0
     final_epsilon = 0.05
     
-    epsilon_episode_stop = int(n_episodes*4/5)
+    epsilon_episode_stop = int(n_episodes*7/8)
     epsilon_decay = (start_epsilon - final_epsilon) / epsilon_episode_stop
     
     discount_factor = 0.99
@@ -247,7 +240,7 @@ def main():
     # Crea l'agente
     agent = FrozenLakeAgent(
         env, learning_rate, start_epsilon, epsilon_decay, final_epsilon, 
-        batch_size, tf.keras.optimizers.Adam, "mse", "relu", 
+        batch_size, "mse", "relu", 
         state_size, action_size, action_space, discount_factor
     )
     
@@ -292,12 +285,12 @@ def main():
         agent.decay_epsilon()
         
         # Stampa progress e salva metriche ogni 100 episodi
-        if episode % 100 == 0:
+        if episode % 250 == 0:
             batch_time = time.time() - batch_start_time
-            results.append(cumulative_reward / 100)
+            results.append(cumulative_reward / 250)
             epsilon_values.append(agent.epsilon)  # Salva il valore corrente di epsilon
             
-            print(f"Episodio {episode}/{train_episodes} - Ricompensa media: {cumulative_reward/100:.4f} - Epsilon: {agent.epsilon:.4f} - Tempo: {batch_time:.2f}s")
+            print(f"Episodio {episode}/{train_episodes} - Ricompensa media: {cumulative_reward/250:.4f} - Epsilon: {agent.epsilon:.4f} - Tempo: {batch_time:.2f}s")
             
             cumulative_reward = 0
             batch_start_time = time.time()
