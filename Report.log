@@ -1,0 +1,238 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.3.22)  22 MAR 2025 19:40
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**/home/fracchio/ML-project/Report.tex
+(/home/fracchio/ML-project/Report.tex
+LaTeX2e <2021-11-15> patch level 1
+L3 programming layer <2022-01-21> (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count185
+\c@section=\count186
+\c@subsection=\count187
+\c@subsubsection=\count188
+\c@paragraph=\count189
+\c@subparagraph=\count190
+\c@figure=\count191
+\c@table=\count192
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen138
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks16
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen139
+\Gin@req@width=\dimen140
+) (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count193
+\l__pdf_internal_box=\box50
+) (./Report.aux)
+\openout1 = `Report.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+ (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count194
+\scratchdimen=\dimen141
+\scratchbox=\box51
+\nofMPsegments=\count195
+\nofMParguments=\count196
+\everyMPshowfont=\toks17
+\MPscratchCnt=\count197
+\MPscratchDim=\dimen142
+\MPnumerator=\count198
+\makeMPintoPDFobject=\count199
+\everyMPtoPDFconversion=\toks18
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+))
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 13.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 13.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 13.
+<logo Sapienza (rgb).png, id=1, 2730.2pt x 1134.2375pt>
+File: logo Sapienza (rgb).png Graphic file (type png)
+<use logo Sapienza (rgb).png>
+Package pdftex.def Info: logo Sapienza (rgb).png  used on input line 17.
+(pdftex.def)             Requested size: 2730.19337pt x 1134.23474pt.
+ [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./logo Sapienza (rgb).png>]
+<agent-environment-schema.png, id=13, 853.1875pt x 558.085pt>
+File: agent-environment-schema.png Graphic file (type png)
+<use agent-environment-schema.png>
+Package pdftex.def Info: agent-environment-schema.png  used on input line 34.
+(pdftex.def)             Requested size: 853.18542pt x 558.08365pt.
+<nd-Q-learning-function.png, id=14, 556.32843pt x 212.29312pt>
+File: nd-Q-learning-function.png Graphic file (type png)
+<use nd-Q-learning-function.png>
+Package pdftex.def Info: nd-Q-learning-function.png  used on input line 43.
+(pdftex.def)             Requested size: 556.32707pt x 212.2926pt.
+ [2
+
+ <./agent-environment-schema.png>]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 49.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 49.
+ [3 <./nd-Q-learning-function.png>]
+Overfull \hbox (63.24669pt too wide) in paragraph at lines 93--93
+ []\OT1/cmtt/m/n/10 self.epsilon = max(self.final_epsilon, self.epsilon - self.epsilon_decay)[] 
+ []
+
+<TQL;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.238095238095238e-05;gam=0.99.png, id=24, 1727.253pt x 716.9184pt>
+File: TQL;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.238095238095238e-05;gam=0.99.png Graphic file (type png)
+<use TQL;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.238095238095238e-05;gam=0.99.png>
+Package pdftex.def Info: TQL;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.238095238095238e-05;gam=0.99.png  used on input line 121.
+(pdftex.def)             Requested size: 1727.24881pt x 716.91664pt.
+[4]
+<TQL;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.916666666666666e-05;gam=0.99.png, id=30, 1727.253pt x 716.9184pt>
+File: TQL;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.916666666666666e-05;gam=0.99.png Graphic file (type png)
+<use TQL;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.916666666666666e-05;gam=0.99.png>
+Package pdftex.def Info: TQL;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.916666666666666e-05;gam=0.99.png  used on input line 127.
+(pdftex.def)             Requested size: 1727.24881pt x 716.91664pt.
+<TQL;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png, id=31, 1727.253pt x 716.9184pt>
+File: TQL;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png Graphic file (type png)
+<use TQL;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png>
+Package pdftex.def Info: TQL;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png  used on input line 133.
+(pdftex.def)             Requested size: 1727.24881pt x 716.91664pt.
+ [5 <./TQL;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.238095238095238e-05;gam=0.99.png> <./TQL;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.916666666666666e-05;gam=0.99.png> <./TQL;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png>] [6
+
+]
+File: TQL;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png Graphic file (type png)
+<use TQL;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png>
+Package pdftex.def Info: TQL;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png  used on input line 170.
+(pdftex.def)             Requested size: 1727.24881pt x 716.91664pt.
+<TQL;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png, id=41, 1727.253pt x 716.9184pt>
+File: TQL;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png Graphic file (type png)
+<use TQL;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png>
+Package pdftex.def Info: TQL;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png  used on input line 175.
+(pdftex.def)             Requested size: 1727.24881pt x 716.91664pt.
+<TQL;lr=0.001;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png, id=42, 1727.253pt x 716.9184pt>
+File: TQL;lr=0.001;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png Graphic file (type png)
+<use TQL;lr=0.001;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png>
+Package pdftex.def Info: TQL;lr=0.001;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png  used on input line 180.
+(pdftex.def)             Requested size: 1727.24881pt x 716.91664pt.
+ [7
+
+ <./TQL;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png> <./TQL;lr=0.001;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png>]
+<NN_architecture.png, id=49, 833.1125pt x 895.345pt>
+File: NN_architecture.png Graphic file (type png)
+<use NN_architecture.png>
+Package pdftex.def Info: NN_architecture.png  used on input line 216.
+(pdftex.def)             Requested size: 833.11047pt x 895.34282pt.
+ [8
+
+] [9 <./NN_architecture.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 239--274
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 239--274
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 239--274
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 239--274
+
+ []
+
+[10
+
+]
+<DQN;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.238095238095238e-05;gam=0.99.png, id=59, 1727.253pt x 716.9184pt>
+File: DQN;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.238095238095238e-05;gam=0.99.png Graphic file (type png)
+<use DQN;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.238095238095238e-05;gam=0.99.png>
+Package pdftex.def Info: DQN;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.238095238095238e-05;gam=0.99.png  used on input line 301.
+(pdftex.def)             Requested size: 1727.24881pt x 716.91664pt.
+ [11]
+<DQN;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.916666666666666e-05;gam=0.99.png, id=63, 1727.253pt x 716.9184pt>
+File: DQN;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.916666666666666e-05;gam=0.99.png Graphic file (type png)
+<use DQN;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.916666666666666e-05;gam=0.99.png>
+Package pdftex.def Info: DQN;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.916666666666666e-05;gam=0.99.png  used on input line 306.
+(pdftex.def)             Requested size: 1727.24881pt x 716.91664pt.
+<DQN;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png, id=64, 1727.253pt x 716.9184pt>
+File: DQN;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png Graphic file (type png)
+<use DQN;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png>
+Package pdftex.def Info: DQN;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png  used on input line 311.
+(pdftex.def)             Requested size: 1727.24881pt x 716.91664pt.
+ [12 <./DQN;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.238095238095238e-05;gam=0.99.png> <./DQN;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.916666666666666e-05;gam=0.99.png> <./DQN;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png>] [13
+
+]
+File: DQN;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png Graphic file (type png)
+<use DQN;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png>
+Package pdftex.def Info: DQN;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png  used on input line 351.
+(pdftex.def)             Requested size: 1727.24881pt x 716.91664pt.
+<DQN;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png, id=75, 1727.253pt x 716.9184pt>
+File: DQN;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png Graphic file (type png)
+<use DQN;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png>
+Package pdftex.def Info: DQN;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png  used on input line 356.
+(pdftex.def)             Requested size: 1727.24881pt x 716.91664pt.
+<DQN;lr=0.001;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png, id=76, 1727.253pt x 716.9184pt>
+File: DQN;lr=0.001;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png Graphic file (type png)
+<use DQN;lr=0.001;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png>
+Package pdftex.def Info: DQN;lr=0.001;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png  used on input line 361.
+(pdftex.def)             Requested size: 1727.24881pt x 716.91664pt.
+ [14
+
+ <./DQN;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png> <./DQN;lr=0.001;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png>] [15
+
+] (./Report.aux) ) 
+Here is how much of TeX's memory you used:
+ 1381 strings out of 478287
+ 27815 string characters out of 5849289
+ 318790 words of memory out of 5000000
+ 19598 multiletter control sequences out of 15000+600000
+ 473981 words of font info for 44 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 55i,6n,62p,389b,214s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on Report.pdf (15 pages, 5555497 bytes).
+PDF statistics:
+ 116 PDF objects out of 1000 (max. 8388607)
+ 57 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 71 words of extra memory for PDF output out of 10000 (max. 10000000)
+

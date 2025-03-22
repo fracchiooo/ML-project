@@ -57,9 +57,9 @@ class FrozenLakeAgent:
         self.gamma = gamma
         
         # Crea il modello con ottimizzazioni
-        self.model = self.build_model(tf.keras.optimizers.Adam(learning_rate=0.001), loss_function, activation_function)
+        self.model = self.build_model(loss_function, activation_function)
 
-    def build_model(self, optimizer_class, loss_function, activation_function):
+    def build_model(self, loss_function, activation_function):
         # Definizione esplicita degli input shape
         model = tf.keras.Sequential([
             tf.keras.layers.InputLayer(input_shape=(self.state_size,)),
@@ -133,7 +133,6 @@ class FrozenLakeAgent:
             current_q = target_values[i, actions[i]]
             target_q = rewards[i] + (1 - terminated[i]) * self.gamma * max_next_q[i]
             target_values[i, actions[i]] = current_q + self.learning_rate * (target_q - current_q)
-            #target_values[i, actions[i]] = rewards[i] + (1 - terminated[i]) * self.gamma * max_next_q[i]
         
         # Training più efficiente
         self.model.fit(states, target_values, epochs=1, verbose=0, batch_size=self.batch_size)
@@ -217,12 +216,12 @@ def main():
     
     # Impostazioni iniziali
     env = gym.make("FrozenLake-v1", render_mode=None, desc=None, map_name="4x4", is_slippery=True)
-    learning_rate = 0.1  # Leggermente aumentato per convergenza più rapida
+    learning_rate = 0.001  # Leggermente aumentato per convergenza più rapida
     n_episodes = 15_000
     start_epsilon = 1.0
     final_epsilon = 0.05
     
-    epsilon_episode_stop = int(n_episodes*7/8)
+    epsilon_episode_stop = int(n_episodes*1/2)  #1/2 ; 3/4 ; 7/8
     epsilon_decay = (start_epsilon - final_epsilon) / epsilon_episode_stop
     
     discount_factor = 0.99

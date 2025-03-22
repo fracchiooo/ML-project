@@ -123,7 +123,7 @@ def main():
     n_episodes = 15_000
     start_epsilon = 1.0
     final_epsilon = 0.05
-    epsilon_episode_stop = int(n_episodes*7/8)
+    epsilon_episode_stop = int(n_episodes*1/2) #1/2 ; 3/4 ; 7/8
     epsilon_decay = (start_epsilon - final_epsilon) / epsilon_episode_stop
     discount_factor = 0.99
 
