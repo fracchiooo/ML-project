@@ -36,6 +36,16 @@ DQN;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.000127;gam=0.99  => 0.72  (5
 
 MAP 8X8
 
-TQL2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99   ==> 0.62
+TQL2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.000127;gam=0.99   ==> 0.62 (2000 episodes)
+
+TQL2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.2e-05;gam=0.99    ==> 0.526 (2000 episodes)
+
+TQL2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.4e-05;gam=0.99    ==> 0.534 (2000 episodes)
+            
 
 
+
+
+learning rate:
+
+TQL2;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.000127;gam=0.99  ==> 0.013 (2000 episodes)
