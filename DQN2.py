@@ -177,7 +177,7 @@ def plot_results(results, epsilon_values, filename):
     plt.figure(figsize=(24, 10))  # Grafico molto più ampio
     
     # Creazione del grafico principale per reward medio
-    x_values = np.arange(1, len(results) + 1) * 250
+    x_values = np.arange(1, len(results) + 1) * 200.0
     plt.plot(x_values, results, marker='o', linestyle='-', color='b', label="Media ricompense ogni 100 episodi")
     
     # Configura asse y primario
@@ -187,7 +187,7 @@ def plot_results(results, epsilon_values, filename):
     plt.grid(True, alpha=0.3)
     
     # Imposta esplicitamente i tick dell'asse x per mostrare tutti gli episodi
-    plt.xticks(np.arange(min(x_values), max(x_values)+1, 250), fontsize=5)
+    plt.xticks(np.arange(min(x_values), max(x_values)+1, 200.0), fontsize=5)
     
     # Creazione asse y secondario per epsilon
     ax2 = plt.twinx()
@@ -284,12 +284,12 @@ def main():
         agent.decay_epsilon()
         
         # Stampa progress e salva metriche ogni 100 episodi
-        if episode % 250 == 0:
+        if episode % 200 == 0:
             batch_time = time.time() - batch_start_time
-            results.append(cumulative_reward / 250)
+            results.append(cumulative_reward / 200.0)
             epsilon_values.append(agent.epsilon)  # Salva il valore corrente di epsilon
             
-            print(f"Episodio {episode}/{train_episodes} - Ricompensa media: {cumulative_reward/250:.4f} - Epsilon: {agent.epsilon:.4f} - Tempo: {batch_time:.2f}s")
+            print(f"Episodio {episode}/{train_episodes} - Ricompensa media: {cumulative_reward/200.0:.4f} - Epsilon: {agent.epsilon:.4f} - Tempo: {batch_time:.2f}s")
             
             cumulative_reward = 0
             batch_start_time = time.time()
