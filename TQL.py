@@ -79,7 +79,7 @@ def plot_results(results, epsilon_values, filename):
     plt.figure(figsize=(24, 10))  # Grafico molto più ampio
     
     # Creazione del grafico principale per reward medio
-    x_values = np.arange(1, len(results) + 1) * 250
+    x_values = np.arange(1, len(results) + 1) * 200.0
     plt.plot(x_values, results, marker='o', linestyle='-', color='b', label="Media ricompense ogni 100 episodi")
     
     # Configura asse y primario
@@ -89,7 +89,7 @@ def plot_results(results, epsilon_values, filename):
     plt.grid(True, alpha=0.3)
     
     # Imposta esplicitamente i tick dell'asse x per mostrare tutti gli episodi
-    plt.xticks(np.arange(min(x_values), max(x_values)+1, 250), fontsize=5)
+    plt.xticks(np.arange(min(x_values), max(x_values)+1, 200.0), fontsize=5)
     
     # Creazione asse y secondario per epsilon
     ax2 = plt.twinx()
@@ -116,10 +116,10 @@ def main():
 
     #is_slippery=True: If true the player will move in intended direction with probability of 1/3 else will move in either perpendicular direction with equal probability of 1/3 in both directions.
     #desc= ... : for addressing a random map to the environment
-    env = gym.make("FrozenLake-v1", render_mode=None, desc=None, map_name="4x4", is_slippery=True)
+    env = gym.make("FrozenLake-v1", render_mode=None, desc=None, map_name="8x8", is_slippery=True)
  
 
-    learning_rate = 0.1
+    learning_rate = 0.01
     n_episodes = 15_000
     start_epsilon = 1.0
     final_epsilon = 0.05
@@ -127,7 +127,7 @@ def main():
     epsilon_decay = (start_epsilon - final_epsilon) / epsilon_episode_stop
     discount_factor = 0.99
 
-    filename = "TQL;lr="+str(learning_rate)+";nep="+str(n_episodes)+";eps="+str(start_epsilon)+";fineps="+str(final_epsilon)+";eps_dec="+str(epsilon_decay)+";gam="+str(discount_factor)
+    filename = "TQL2;lr="+str(learning_rate)+";nep="+str(n_episodes)+";eps="+str(start_epsilon)+";fineps="+str(final_epsilon)+";eps_dec="+str(epsilon_decay)+";gam="+str(discount_factor)
 
 
     n_states=env.observation_space.n
@@ -165,10 +165,10 @@ def main():
 
         agent.decay_epsilon()
 
-        if episode%250==0:
-            print(f"Episodio {episode}/{n_episodes} - Ricompensa media: {G/250:.4f} - Epsilon: {agent.epsilon:.4f}")
+        if episode%200==0:
+            print(f"Episodio {episode}/{n_episodes} - Ricompensa media: {G/200.0:.4f} - Epsilon: {agent.epsilon:.4f}")
             epsilon_values.append(agent.epsilon)
-            results.append(G/250)
+            results.append(G/200.0)
             G=0
 
 
@@ -180,7 +180,7 @@ def main():
     
     
     Q = agent.q_values
-    n_episodes=500
+    n_episodes=2000
     G=0
     # testing the Q-table
     for episode in range(1, n_episodes+1):
