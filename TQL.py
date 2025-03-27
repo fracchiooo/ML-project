@@ -119,7 +119,7 @@ def main():
     env = gym.make("FrozenLake-v1", render_mode=None, desc=None, map_name="8x8", is_slippery=True)
  
 
-    learning_rate = 0.01
+    learning_rate = 0.001
     n_episodes = 15_000
     start_epsilon = 1.0
     final_epsilon = 0.05
