@@ -221,14 +221,14 @@ def main():
     start_epsilon = 1.0
     final_epsilon = 0.05
     
-    epsilon_episode_stop = int(n_episodes*1/2)  #1/2 ; 3/4 ; 7/8
+    epsilon_episode_stop = int(n_episodes*7/8)  #1/2 ; 3/4 ; 7/8
     epsilon_decay = (start_epsilon - final_epsilon) / epsilon_episode_stop
     
     discount_factor = 0.99
     batch_size = 64  # Aumentato per migliore utilizzo della GPU
     
     train_episodes = n_episodes
-    test_episodes = 500
+    test_episodes = 2000
 
     filename = "DQN2;lr="+str(learning_rate)+";nep="+str(n_episodes)+";eps="+str(start_epsilon)+";fineps="+str(final_epsilon)+";eps_dec="+str(epsilon_decay)+";gam="+str(discount_factor)
     
