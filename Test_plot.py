@@ -65,7 +65,7 @@ def plot_results() :
 def build_model(loss_function, activation_function):
         # Definizione esplicita degli input shape
         model = tf.keras.Sequential([
-            tf.keras.layers.InputLayer(input_shape=(16,)),
+            tf.keras.layers.InputLayer(input_shape=(64,)),
             tf.keras.layers.Dense(12, activation=activation_function, name="hidden layer 1"),
             tf.keras.layers.Dense(12, activation=activation_function, name="hidden layer 2"),
             tf.keras.layers.Dense(4, activation='linear', name = "output layer")
@@ -115,7 +115,7 @@ def visualize_model(model):
 
         prev_layer_nodes = layer_nodes  # Aggiorna il layer precedente
 
-    dot.render("neural_network_diagram", view=True)
+    dot.render("neural_network_diagram2", view=True)
 
 
 
@@ -179,9 +179,9 @@ def plot_fusion():
 
 def main():
      
-    #model = build_model("mse", "relu")
-    #visualize_model(model)
-    plot_fusion()
+    model = build_model("mse", "relu")
+    visualize_model(model)
+
 
 
 

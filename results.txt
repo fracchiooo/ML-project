@@ -41,35 +41,38 @@ MAP 8X8
 
 epsilon:
 
-TQL2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.000127;gam=0.99   ==> 0.62 (2000 episodes)
+TQL2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.000127;gam=0.99   ==> 0.004 (2000 episodes)       
 
 TQL2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.2e-05;gam=0.99    ==> 0.526 (2000 episodes)
 
-TQL2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.4e-05;gam=0.99    ==> 0.534 (2000 episodes)
+TQL2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.4e-05;gam=0.99    ==> 0.534 (2000 episodes)         
 
 
-DQN2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.000127;gam=0.99 ==> 0.3675 (2000 episodes)
+DQN2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.000127;gam=0.99 ==> 0.3675 (2000 episodes)         DQN2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.000126;gam=0.99  ==> 0.4525
 
-DQN2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.4e-05;gam=0.99   ==> 0.004 (2000 episodes)
-            
+DQN2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.4e-05;gam=0.99   ==> 0.004 (2000 episodes)         DQN2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.4e-05;gam=0.99  ==> 0.446
+
+DQN2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.2e-05;gam=0.99  ==>  0.4660 (2000 episodes)        DQN2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.2e-05;gam=0.99  ==> 0.3925
 
 
 
 
 learning rate:
 
-TQL2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.000127;gam=0.99   ==> 0.62 (2000 episodes)
+TQL2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.000127;gam=0.99   ==> 0.004 (2000 episodes)        TQL2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.4e-05;gam=0.99    ==> 0.534 (2000 episodes)         
 
-TQL2;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.000127;gam=0.99  ==> 0.013 (2000 episodes)
+TQL2;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.000127;gam=0.99  ==> 0.013 (2000 episodes)        TQL2;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.4e-05;gam=0.99    ==> 0.1325
 
-TQL2;lr=0.001;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.000127;gam=0.99 ==> 0.0025 (2000 episodes)
-
-
+TQL2;lr=0.001;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.000127;gam=0.99 ==> 0.0025 (2000 episodes)       TQL2;lr=0.001;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.4e-05;gam=0.99   ==> 0.085
 
 
-DQN2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.000127;gam=0.99 ==> 0.3675 (2000 episodes)
 
-DQN2;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.000127;gam=0.99  ==> 0.2355 (2000 episodes)
+
+DQN2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.000127;gam=0.99 ==> 0.3675 (2000 episodes)        DQN2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.4e-05;gam=0.99  ==> 0.446
+
+DQN2;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.000127;gam=0.99  ==> 0.2355 (2000 episodes)      DQN2;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.4e-05;gam=0.99  ==> 0.4035
+
+DQN2;lr=0.001;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.000127;gam=0.99 ==> 0.143 (2000 episodes)       DQN2;lr=0.001;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.4e-05;gam=0.99 ==> 0.002
 
 
 
