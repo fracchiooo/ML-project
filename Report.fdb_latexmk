@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1743619816 "/home/fracchio/ML-project/Report.tex" "Report.pdf" "Report" 1743619831
+["pdflatex"] 1743948483 "/home/fracchio/ML-project/Report.tex" "Report.pdf" "Report" 1743948498
   "/etc/texmf/web2c/texmf.cnf" 1742663945 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/fracchio/ML-project/Report.tex" 1743619801 32967 e66f1d3baefa3cac8885fbeecbe19014 ""
+  "/home/fracchio/ML-project/Report.tex" 1743948483 32968 adfddf6488ab1a9809d1be39733b4198 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1136768653 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
@@ -55,8 +55,8 @@
   "Mean_square_error_function.png" 1743612568 65692 51b455f161947c634433594d32339b63 ""
   "NN_architecture.png" 1742573765 223342 bbd99227de2f5baeeb270ccff9deffb2 ""
   "NN_architecture2.png" 1743267577 594584 925f087fed0d0decf27b3f8315e9804d ""
-  "Report.aux" 1743619831 3703 3578c86d11a8c97bfd9225eaba8314f6 "pdflatex"
-  "Report.tex" 1743619801 32967 e66f1d3baefa3cac8885fbeecbe19014 ""
+  "Report.aux" 1743948498 3703 3578c86d11a8c97bfd9225eaba8314f6 "pdflatex"
+  "Report.tex" 1743948483 32968 adfddf6488ab1a9809d1be39733b4198 ""
   "TQL2;lr=0.001;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png" 1743297715 544321 d63d4ac7f2fe3a952c959ebd36716001 ""
   "TQL2;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png" 1743459034 523564 3653fb15017bc49807c9f2b48e67d039 ""
   "TQL2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png" 1743458093 309435 0686d4e6a1bbd2f210833458598768bd ""
