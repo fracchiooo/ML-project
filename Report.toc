@@ -1,0 +1,31 @@
+\contentsline {section}{\numberline {1}Introduction}{3}{}%
+\contentsline {section}{\numberline {2}Environment}{4}{}%
+\contentsline {subsection}{\numberline {2.1}Exploration-exploitation}{4}{}%
+\contentsline {subsection}{\numberline {2.2}General solution adopted}{5}{}%
+\contentsline {section}{\numberline {3}Map 4x4}{5}{}%
+\contentsline {subsection}{\numberline {3.1}Tabular Q Learning}{5}{}%
+\contentsline {subsubsection}{\numberline {3.1.1}Solution adopted}{5}{}%
+\contentsline {subsubsection}{\numberline {3.1.2}Metric results}{5}{}%
+\contentsline {paragraph}{Changing the epsilon decay}{5}{}%
+\contentsline {paragraph}{Changing the learning rate}{7}{}%
+\contentsline {paragraph}{Conclusions}{9}{}%
+\contentsline {subsection}{\numberline {3.2}Deep Q Network}{11}{}%
+\contentsline {subsubsection}{\numberline {3.2.1}Solution adopted}{11}{}%
+\contentsline {subsubsection}{\numberline {3.2.2}Metric results}{13}{}%
+\contentsline {paragraph}{Changing the epsilon decay}{13}{}%
+\contentsline {paragraph}{Changing the learning rate}{15}{}%
+\contentsline {paragraph}{Conclusions}{17}{}%
+\contentsline {section}{\numberline {4}Map 8x8}{17}{}%
+\contentsline {subsection}{\numberline {4.1}Tabular Q Learning}{17}{}%
+\contentsline {subsubsection}{\numberline {4.1.1}Solution adopted}{17}{}%
+\contentsline {subsubsection}{\numberline {4.1.2}Metric results}{18}{}%
+\contentsline {paragraph}{Changing the epsilon decay}{18}{}%
+\contentsline {paragraph}{Changing the learning rate}{19}{}%
+\contentsline {paragraph}{Conclusions}{21}{}%
+\contentsline {subsection}{\numberline {4.2}Deep Q Network}{22}{}%
+\contentsline {subsubsection}{\numberline {4.2.1}Solution adopted}{22}{}%
+\contentsline {subsubsection}{\numberline {4.2.2}Metric results}{24}{}%
+\contentsline {paragraph}{Changing the epsilon decay}{24}{}%
+\contentsline {paragraph}{Changing the learning rate}{26}{}%
+\contentsline {paragraph}{Conclusions}{28}{}%
+\contentsline {section}{\numberline {5}Confrontation between maps}{28}{}%

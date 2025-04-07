@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.3.22)  7 APR 2025 14:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.3.22)  7 APR 2025 17:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -40,40 +40,53 @@ File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen139
 \Gin@req@width=\dimen140
+) (/usr/share/texlive/texmf-dist/tex/latex/base/makeidx.sty
+Package: makeidx 2021/10/04 v1.0m Standard LaTeX package
+) (/usr/share/texlive/texmf-dist/tex/latex/titlesec/titlesec.sty
+Package: titlesec 2021/07/05 v2.14 Sectioning titles
+\ttl@box=\box50
+\beforetitleunit=\skip49
+\aftertitleunit=\skip50
+\ttl@plus=\dimen141
+\ttl@minus=\dimen142
+\ttl@toksa=\toks17
+\titlewidth=\dimen143
+\titlewidthlast=\dimen144
+\titlewidthfirst=\dimen145
 ) (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count193
-\l__pdf_internal_box=\box50
+\l__pdf_internal_box=\box51
 ) (./Report.aux)
 \openout1 = `Report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count194
-\scratchdimen=\dimen141
-\scratchbox=\box51
+\scratchdimen=\dimen146
+\scratchbox=\box52
 \nofMPsegments=\count195
 \nofMParguments=\count196
-\everyMPshowfont=\toks17
+\everyMPshowfont=\toks18
 \MPscratchCnt=\count197
-\MPscratchDim=\dimen142
+\MPscratchDim=\dimen147
 \MPnumerator=\count198
 \makeMPintoPDFobject=\count199
-\everyMPtoPDFconversion=\toks18
+\everyMPtoPDFconversion=\toks19
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -81,260 +94,266 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 13.
+(Font)              <12> on input line 17.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 13.
+(Font)              <8> on input line 17.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 13.
+(Font)              <6> on input line 17.
 <logo Sapienza (rgb).png, id=1, 2730.2pt x 1134.2375pt>
 File: logo Sapienza (rgb).png Graphic file (type png)
 <use logo Sapienza (rgb).png>
-Package pdftex.def Info: logo Sapienza (rgb).png  used on input line 17.
+Package pdftex.def Info: logo Sapienza (rgb).png  used on input line 21.
 (pdftex.def)             Requested size: 2730.19337pt x 1134.23474pt.
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./logo Sapienza (rgb).png>]
-<agent-environment-schema.png, id=13, 853.1875pt x 558.085pt>
-File: agent-environment-schema.png Graphic file (type png)
-<use agent-environment-schema.png>
-Package pdftex.def Info: agent-environment-schema.png  used on input line 34.
-(pdftex.def)             Requested size: 853.18542pt x 558.08365pt.
-<nd-Q-learning-function.png, id=14, 556.32843pt x 212.29312pt>
-File: nd-Q-learning-function.png Graphic file (type png)
-<use nd-Q-learning-function.png>
-Package pdftex.def Info: nd-Q-learning-function.png  used on input line 43.
-(pdftex.def)             Requested size: 556.32707pt x 212.2926pt.
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./logo Sapienza (rgb).png>] (./Report.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 3.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 3.
+)
+\tf@toc=\write3
+\openout3 = `Report.toc'.
+
  [2
 
- <./agent-environment-schema.png>]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 49.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 49.
- [3 <./nd-Q-learning-function.png>]
-Overfull \hbox (63.24669pt too wide) in paragraph at lines 94--94
+]
+<agent-environment-schema.png, id=17, 853.1875pt x 558.085pt>
+File: agent-environment-schema.png Graphic file (type png)
+<use agent-environment-schema.png>
+Package pdftex.def Info: agent-environment-schema.png  used on input line 42.
+(pdftex.def)             Requested size: 853.18542pt x 558.08365pt.
+<nd-Q-learning-function.png, id=18, 556.32843pt x 212.29312pt>
+File: nd-Q-learning-function.png Graphic file (type png)
+<use nd-Q-learning-function.png>
+Package pdftex.def Info: nd-Q-learning-function.png  used on input line 51.
+(pdftex.def)             Requested size: 556.32707pt x 212.2926pt.
+ [3
+
+ <./agent-environment-schema.png>] [4 <./nd-Q-learning-function.png>]
+Overfull \hbox (63.24669pt too wide) in paragraph at lines 102--102
  []\OT1/cmtt/m/n/10 self.epsilon = max(self.final_epsilon, self.epsilon - self.epsilon_decay)[] 
  []
 
-<TQL;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.238095238095238e-05;gam=0.99.png, id=24, 1727.253pt x 716.9184pt>
+<TQL;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.238095238095238e-05;gam=0.99.png, id=28, 1727.253pt x 716.9184pt>
 File: TQL;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.238095238095238e-05;gam=0.99.png Graphic file (type png)
 <use TQL;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.238095238095238e-05;gam=0.99.png>
-Package pdftex.def Info: TQL;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.238095238095238e-05;gam=0.99.png  used on input line 122.
+Package pdftex.def Info: TQL;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.238095238095238e-05;gam=0.99.png  used on input line 130.
 (pdftex.def)             Requested size: 1727.24881pt x 716.91664pt.
-[4]
-<TQL;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.916666666666666e-05;gam=0.99.png, id=30, 1727.253pt x 716.9184pt>
+[5]
+<TQL;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.916666666666666e-05;gam=0.99.png, id=33, 1727.253pt x 716.9184pt>
 File: TQL;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.916666666666666e-05;gam=0.99.png Graphic file (type png)
 <use TQL;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.916666666666666e-05;gam=0.99.png>
-Package pdftex.def Info: TQL;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.916666666666666e-05;gam=0.99.png  used on input line 128.
+Package pdftex.def Info: TQL;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.916666666666666e-05;gam=0.99.png  used on input line 136.
 (pdftex.def)             Requested size: 1727.24881pt x 716.91664pt.
-<TQL;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png, id=31, 1727.253pt x 716.9184pt>
+<TQL;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png, id=34, 1727.253pt x 716.9184pt>
 File: TQL;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png Graphic file (type png)
 <use TQL;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png>
-Package pdftex.def Info: TQL;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png  used on input line 134.
+Package pdftex.def Info: TQL;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png  used on input line 142.
 (pdftex.def)             Requested size: 1727.24881pt x 716.91664pt.
- [5 <./TQL;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.238095238095238e-05;gam=0.99.png> <./TQL;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.916666666666666e-05;gam=0.99.png> <./TQL;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png>] [6
+ [6 <./TQL;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.238095238095238e-05;gam=0.99.png> <./TQL;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.916666666666666e-05;gam=0.99.png> <./TQL;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png>] [7
 
 ]
 File: TQL;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png Graphic file (type png)
 <use TQL;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png>
-Package pdftex.def Info: TQL;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png  used on input line 171.
+Package pdftex.def Info: TQL;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png  used on input line 179.
 (pdftex.def)             Requested size: 1727.24881pt x 716.91664pt.
-<TQL;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png, id=41, 1727.253pt x 716.9184pt>
+<TQL;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png, id=45, 1727.253pt x 716.9184pt>
 File: TQL;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png Graphic file (type png)
 <use TQL;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png>
-Package pdftex.def Info: TQL;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png  used on input line 176.
+Package pdftex.def Info: TQL;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png  used on input line 184.
 (pdftex.def)             Requested size: 1727.24881pt x 716.91664pt.
-<TQL;lr=0.001;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png, id=42, 1727.253pt x 716.9184pt>
+<TQL;lr=0.001;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png, id=46, 1727.253pt x 716.9184pt>
 File: TQL;lr=0.001;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png Graphic file (type png)
 <use TQL;lr=0.001;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png>
-Package pdftex.def Info: TQL;lr=0.001;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png  used on input line 181.
+Package pdftex.def Info: TQL;lr=0.001;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png  used on input line 189.
 (pdftex.def)             Requested size: 1727.24881pt x 716.91664pt.
- [7
-
- <./TQL;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png> <./TQL;lr=0.001;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png>]
-<policy_arrows_4x4.png, id=49, 573.1011pt x 578.16pt>
-File: policy_arrows_4x4.png Graphic file (type png)
-<use policy_arrows_4x4.png>
-Package pdftex.def Info: policy_arrows_4x4.png  used on input line 212.
-(pdftex.def)             Requested size: 573.0997pt x 578.15858pt.
  [8
 
+ <./TQL;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png> <./TQL;lr=0.001;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png>]
+<policy_arrows_4x4.png, id=52, 573.1011pt x 578.16pt>
+File: policy_arrows_4x4.png Graphic file (type png)
+<use policy_arrows_4x4.png>
+Package pdftex.def Info: policy_arrows_4x4.png  used on input line 220.
+(pdftex.def)             Requested size: 573.0997pt x 578.15858pt.
+ [9
+
 ]
-<NN_architecture.png, id=53, 833.1125pt x 895.345pt>
+<NN_architecture.png, id=56, 833.1125pt x 895.345pt>
 File: NN_architecture.png Graphic file (type png)
 <use NN_architecture.png>
-Package pdftex.def Info: NN_architecture.png  used on input line 222.
+Package pdftex.def Info: NN_architecture.png  used on input line 230.
 (pdftex.def)             Requested size: 833.11047pt x 895.34282pt.
- [9 <./policy_arrows_4x4.png>] [10 <./NN_architecture.png (PNG copy)>]
-<Mean_square_error_function.png, id=61, 818.05624pt x 279.0425pt>
+ [10 <./policy_arrows_4x4.png>] [11 <./NN_architecture.png (PNG copy)>]
+<Mean_square_error_function.png, id=64, 818.05624pt x 279.0425pt>
 File: Mean_square_error_function.png Graphic file (type png)
 <use Mean_square_error_function.png>
-Package pdftex.def Info: Mean_square_error_function.png  used on input line 247.
+Package pdftex.def Info: Mean_square_error_function.png  used on input line 255.
 (pdftex.def)             Requested size: 276.00105pt x 94.1451pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 253--288
+Underfull \hbox (badness 10000) in paragraph at lines 261--296
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 253--288
+Underfull \hbox (badness 10000) in paragraph at lines 261--296
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 253--288
+Underfull \hbox (badness 10000) in paragraph at lines 261--296
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 253--288
+Underfull \hbox (badness 10000) in paragraph at lines 261--296
 
  []
 
-[11
+[12
 
- <./Mean_square_error_function.png (PNG copy)>] [12]
-<DQN;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.238095238095238e-05;gam=0.99.png, id=68, 1727.253pt x 716.9184pt>
+ <./Mean_square_error_function.png (PNG copy)>] [13]
+<DQN;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.238095238095238e-05;gam=0.99.png, id=72, 1727.253pt x 716.9184pt>
 File: DQN;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.238095238095238e-05;gam=0.99.png Graphic file (type png)
 <use DQN;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.238095238095238e-05;gam=0.99.png>
-Package pdftex.def Info: DQN;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.238095238095238e-05;gam=0.99.png  used on input line 315.
+Package pdftex.def Info: DQN;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.238095238095238e-05;gam=0.99.png  used on input line 323.
 (pdftex.def)             Requested size: 1727.24881pt x 716.91664pt.
-<DQN;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.916666666666666e-05;gam=0.99.png, id=69, 1727.253pt x 716.9184pt>
+<DQN;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.916666666666666e-05;gam=0.99.png, id=73, 1727.253pt x 716.9184pt>
 File: DQN;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.916666666666666e-05;gam=0.99.png Graphic file (type png)
 <use DQN;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.916666666666666e-05;gam=0.99.png>
-Package pdftex.def Info: DQN;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.916666666666666e-05;gam=0.99.png  used on input line 320.
+Package pdftex.def Info: DQN;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.916666666666666e-05;gam=0.99.png  used on input line 328.
 (pdftex.def)             Requested size: 1727.24881pt x 716.91664pt.
-<DQN;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png, id=70, 1727.253pt x 716.9184pt>
+<DQN;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png, id=74, 1727.253pt x 716.9184pt>
 File: DQN;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png Graphic file (type png)
 <use DQN;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png>
-Package pdftex.def Info: DQN;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png  used on input line 325.
+Package pdftex.def Info: DQN;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png  used on input line 333.
 (pdftex.def)             Requested size: 1727.24881pt x 716.91664pt.
- [13 <./DQN;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.238095238095238e-05;gam=0.99.png> <./DQN;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.916666666666666e-05;gam=0.99.png> <./DQN;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png>] [14
+ [14 <./DQN;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.238095238095238e-05;gam=0.99.png> <./DQN;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.916666666666666e-05;gam=0.99.png> <./DQN;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png>] [15
 
 ]
 File: DQN;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png Graphic file (type png)
 <use DQN;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png>
-Package pdftex.def Info: DQN;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png  used on input line 365.
+Package pdftex.def Info: DQN;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png  used on input line 373.
 (pdftex.def)             Requested size: 1727.24881pt x 716.91664pt.
-<DQN;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png, id=81, 1727.253pt x 716.9184pt>
+<DQN;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png, id=84, 1727.253pt x 716.9184pt>
 File: DQN;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png Graphic file (type png)
 <use DQN;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png>
-Package pdftex.def Info: DQN;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png  used on input line 370.
+Package pdftex.def Info: DQN;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png  used on input line 378.
 (pdftex.def)             Requested size: 1727.24881pt x 716.91664pt.
-<DQN;lr=0.001;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png, id=82, 1727.253pt x 716.9184pt>
+<DQN;lr=0.001;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png, id=85, 1727.253pt x 716.9184pt>
 File: DQN;lr=0.001;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png Graphic file (type png)
 <use DQN;lr=0.001;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png>
-Package pdftex.def Info: DQN;lr=0.001;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png  used on input line 375.
+Package pdftex.def Info: DQN;lr=0.001;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png  used on input line 383.
 (pdftex.def)             Requested size: 1727.24881pt x 716.91664pt.
- [15
+ [16
 
- <./DQN;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png> <./DQN;lr=0.001;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png>] [16
+ <./DQN;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png> <./DQN;lr=0.001;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png>] [17
 
 ]
-<TQL2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.238095238095238e-05;gam=0.99.png, id=91, 1727.253pt x 716.9184pt>
+<TQL2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.238095238095238e-05;gam=0.99.png, id=94, 1727.253pt x 716.9184pt>
 File: TQL2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.238095238095238e-05;gam=0.99.png Graphic file (type png)
 <use TQL2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.238095238095238e-05;gam=0.99.png>
-Package pdftex.def Info: TQL2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.238095238095238e-05;gam=0.99.png  used on input line 440.
+Package pdftex.def Info: TQL2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.238095238095238e-05;gam=0.99.png  used on input line 448.
 (pdftex.def)             Requested size: 1727.24881pt x 716.91664pt.
-<TQL2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png, id=92, 1727.253pt x 716.9184pt>
+<TQL2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png, id=95, 1727.253pt x 716.9184pt>
 File: TQL2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png Graphic file (type png)
 <use TQL2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png>
-Package pdftex.def Info: TQL2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png  used on input line 446.
+Package pdftex.def Info: TQL2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png  used on input line 454.
 (pdftex.def)             Requested size: 1727.24881pt x 716.91664pt.
-<TQL2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png, id=93, 1727.4939pt x 716.9184pt>
+<TQL2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png, id=96, 1727.4939pt x 716.9184pt>
 File: TQL2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png Graphic file (type png)
 <use TQL2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png>
-Package pdftex.def Info: TQL2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png  used on input line 452.
+Package pdftex.def Info: TQL2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png  used on input line 460.
 (pdftex.def)             Requested size: 1727.48969pt x 716.91664pt.
- [17 <./TQL2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.238095238095238e-05;gam=0.99.png> <./TQL2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png>] [18 <./TQL2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png>]
+ [18 <./TQL2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.238095238095238e-05;gam=0.99.png> <./TQL2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png>] [19 <./TQL2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png>]
 File: TQL2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png Graphic file (type png)
 <use TQL2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png>
-Package pdftex.def Info: TQL2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png  used on input line 488.
+Package pdftex.def Info: TQL2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png  used on input line 496.
 (pdftex.def)             Requested size: 1727.24881pt x 716.91664pt.
-<TQL2;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png, id=106, 1727.253pt x 716.9184pt>
+<TQL2;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png, id=110, 1727.253pt x 716.9184pt>
 File: TQL2;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png Graphic file (type png)
 <use TQL2;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png>
-Package pdftex.def Info: TQL2;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png  used on input line 493.
+Package pdftex.def Info: TQL2;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png  used on input line 501.
 (pdftex.def)             Requested size: 1727.24881pt x 716.91664pt.
-<TQL2;lr=0.001;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png, id=107, 1727.4939pt x 716.9184pt>
+<TQL2;lr=0.001;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png, id=111, 1727.4939pt x 716.9184pt>
 File: TQL2;lr=0.001;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png Graphic file (type png)
 <use TQL2;lr=0.001;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png>
-Package pdftex.def Info: TQL2;lr=0.001;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png  used on input line 498.
+Package pdftex.def Info: TQL2;lr=0.001;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png  used on input line 506.
 (pdftex.def)             Requested size: 1727.48969pt x 716.91664pt.
- [19
-
- <./TQL2;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png> <./TQL2;lr=0.001;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png>]
-<policy_arrows_8x8.png, id=114, 722.7pt x 721.2546pt>
-File: policy_arrows_8x8.png Graphic file (type png)
-<use policy_arrows_8x8.png>
-Package pdftex.def Info: policy_arrows_8x8.png  used on input line 532.
-(pdftex.def)             Requested size: 722.69823pt x 721.25282pt.
  [20
 
+ <./TQL2;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png> <./TQL2;lr=0.001;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png>]
+<policy_arrows_8x8.png, id=117, 722.7pt x 721.2546pt>
+File: policy_arrows_8x8.png Graphic file (type png)
+<use policy_arrows_8x8.png>
+Package pdftex.def Info: policy_arrows_8x8.png  used on input line 540.
+(pdftex.def)             Requested size: 722.69823pt x 721.25282pt.
+ [21
+
 ]
-<NN_architecture2.png, id=118, 834.11626pt x 3412.75pt>
+<NN_architecture2.png, id=121, 834.11626pt x 3412.75pt>
 File: NN_architecture2.png Graphic file (type png)
 <use NN_architecture2.png>
-Package pdftex.def Info: NN_architecture2.png  used on input line 541.
+Package pdftex.def Info: NN_architecture2.png  used on input line 549.
 (pdftex.def)             Requested size: 134.4159pt x 550.0pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[21 <./policy_arrows_8x8.png>] [22 <./NN_architecture2.png (PNG copy)>]
-<DQN2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.238095238095238e-05;gam=0.99.png, id=126, 1727.253pt x 716.9184pt>
+[22 <./policy_arrows_8x8.png>] [23 <./NN_architecture2.png (PNG copy)>]
+<DQN2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.238095238095238e-05;gam=0.99.png, id=129, 1727.253pt x 716.9184pt>
 File: DQN2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.238095238095238e-05;gam=0.99.png Graphic file (type png)
 <use DQN2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.238095238095238e-05;gam=0.99.png>
-Package pdftex.def Info: DQN2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.238095238095238e-05;gam=0.99.png  used on input line 595.
+Package pdftex.def Info: DQN2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.238095238095238e-05;gam=0.99.png  used on input line 603.
 (pdftex.def)             Requested size: 1727.24881pt x 716.91664pt.
- [23
+ [24
 
 ]
-<DQN2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png, id=130, 1727.253pt x 716.9184pt>
+<DQN2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png, id=133, 1727.253pt x 716.9184pt>
 File: DQN2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png Graphic file (type png)
 <use DQN2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png>
-Package pdftex.def Info: DQN2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png  used on input line 600.
+Package pdftex.def Info: DQN2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png  used on input line 608.
 (pdftex.def)             Requested size: 1727.24881pt x 716.91664pt.
-<DQN2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png, id=131, 1727.253pt x 716.9184pt>
+<DQN2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png, id=134, 1727.253pt x 716.9184pt>
 File: DQN2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png Graphic file (type png)
 <use DQN2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png>
-Package pdftex.def Info: DQN2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png  used on input line 605.
+Package pdftex.def Info: DQN2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png  used on input line 613.
 (pdftex.def)             Requested size: 1727.24881pt x 716.91664pt.
- [24 <./DQN2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.238095238095238e-05;gam=0.99.png> <./DQN2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png> <./DQN2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png>] [25
+ [25 <./DQN2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=7.238095238095238e-05;gam=0.99.png> <./DQN2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png> <./DQN2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=0.00012666666666666666;gam=0.99.png>] [26
 
 ]
 File: DQN2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png Graphic file (type png)
 <use DQN2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png>
-Package pdftex.def Info: DQN2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png  used on input line 647.
+Package pdftex.def Info: DQN2;lr=0.1;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png  used on input line 655.
 (pdftex.def)             Requested size: 1727.24881pt x 716.91664pt.
-<DQN2;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png, id=142, 1727.253pt x 716.9184pt>
+<DQN2;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png, id=145, 1727.253pt x 716.9184pt>
 File: DQN2;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png Graphic file (type png)
 <use DQN2;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png>
-Package pdftex.def Info: DQN2;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png  used on input line 652.
+Package pdftex.def Info: DQN2;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png  used on input line 660.
 (pdftex.def)             Requested size: 1727.24881pt x 716.91664pt.
-<DQN2;lr=0.001;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png, id=143, 1727.253pt x 716.9184pt>
+<DQN2;lr=0.001;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png, id=146, 1727.253pt x 716.9184pt>
 File: DQN2;lr=0.001;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png Graphic file (type png)
 <use DQN2;lr=0.001;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png>
-Package pdftex.def Info: DQN2;lr=0.001;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png  used on input line 657.
+Package pdftex.def Info: DQN2;lr=0.001;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png  used on input line 665.
 (pdftex.def)             Requested size: 1727.24881pt x 716.91664pt.
- [26
+ [27
 
- <./DQN2;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png> <./DQN2;lr=0.001;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png>] [27
+ <./DQN2;lr=0.01;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png> <./DQN2;lr=0.001;nep=15000;eps=1.0;fineps=0.05;eps_dec=8.444444444444444e-05;gam=0.99.png>] [28
 
-] [28] (./Report.aux) ) 
+] [29] (./Report.aux) ) 
 Here is how much of TeX's memory you used:
- 1481 strings out of 478287
- 34861 string characters out of 5849289
- 318810 words of memory out of 5000000
- 19684 multiletter control sequences out of 15000+600000
+ 1826 strings out of 478287
+ 39851 string characters out of 5849289
+ 325591 words of memory out of 5000000
+ 20017 multiletter control sequences out of 15000+600000
  473981 words of font info for 44 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,6n,62p,389b,230s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on Report.pdf (28 pages, 12237581 bytes).
+Output written on Report.pdf (29 pages, 12239090 bytes).
 PDF statistics:
- 198 PDF objects out of 1000 (max. 8388607)
- 94 compressed objects within 1 object stream
+ 201 PDF objects out of 1000 (max. 8388607)
+ 96 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  141 words of extra memory for PDF output out of 10000 (max. 10000000)
 
