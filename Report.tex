@@ -206,7 +206,12 @@ So, in conclusion, I would say that in the case of Tabular Q-learning in a non d
 
 Bringing an average cumulative reward of 0.726 and converging in about 7500 episodes.
 
-
+This is the policy obtained from the Q-table, which is the best one:
+\begin{center}
+    \centering
+    \resizebox{\textwidth}{!}{\includegraphics{policy_arrows_4x4.png}}
+\end{center}
+    
 
 \section{Deep Q Network}
 
@@ -236,6 +241,14 @@ These are the characteristics of the network:
 \item[--] The number of test episodes is 500
 \item[--] The mini-batch size is 64
 \end{itemize}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Mean_square_error_function.png}
+    \caption{Mean Square Error Loss function}
+    \label{mse_loss:}
+
+\end{figure}
 
 The number of neurons in the neural network, and the type of connection (Dense), achieves the presence of 384 weight parameters.
 \\
@@ -513,7 +526,11 @@ So, in conclusion, I would say that in the case of Tabular Q-learning in a non d
 
 Bringing an average cumulative reward in the testing phase of 0.534 and converging in about 11400 episodes.
 
-
+This is the policy obtained from the Q-table, which is the best one:
+\begin{center}
+    \centering
+    \resizebox{\textwidth}{!}{\includegraphics{policy_arrows_8x8.png}}
+\end{center}
 
 \section{Deep Q Network}
 
@@ -545,52 +562,10 @@ These are the characteristics of the network:
 \end{itemize}
 
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.8\textwidth]{Mean_square_error_function.png}
-    \caption{Mean Square Error Loss function}
-    \label{mse_loss:}
 
-\end{figure}
 
-\clearpage
 
 The number of neurons in the neural network, and the type of connection (Dense), achieves the presence of 960 weight parameters.
-\\
-\\
-\textbf{OPTIMIZER}
-\\
-The optimizers (which in this case is Adam), have the goal of adapting the learning rate value (starting from 0.001 in this case) with respect to the current iteration in the training phase; this is done because through the gradient of the loss function at each iteration, we have to perform an adjustment to the weights that contribute to the error.
-\\
-We want the adjustments to be bigger in the first iterations and lower in the later ones, and this is achieved by controlling how the learning rate influences the weight updates during the correction phase, which is the optimizers goal.
-\\
-\\
-\textbf{LOSS FUNCTION}
-\\
-The loss function (which in this case is the mse), has the goal of calculate the difference between a predicted value and the actual value from the training dataset.
-\\
-\\
-\textbf{ACTIVATION FUNCTION}
-\\
-The activation functions (Which in this case are the Relu: g($\alpha$) = max(0,$\alpha$) and the Linear: identity function) are the functions which applies to the weighted sum of the inputs to each neuron, giving the output.
-\\
-In the hidden layers they are not linear and aim to introduce non linearity, in order to be able to capture the non linear relationship between the states and their optimal Q values.
-\\
-To be precise, for computing the gradient on the loss function for correcting the weight's values, we are computing it also on the activation function, but we have no troubles cause the non derivability at the point x=0 (in the case of relu), because is almost impossible that we reach exactly that point during the training phase.
-\\
-\\
-\textbf{REPLY BUFFER}
-\\
-In reinforcement learning it is a data structure commonly used in algorithms like Q-learning.
-\\
-It stores tuples of the form (state, action, reward, next state) that are generated at each step during the training phase.
-\\
-When the neural network trains at each episode, it updates the model using only a sample (in this case, of size mini-batch = 64) from the total training data stored in the replay buffer. 
-\\
-This approach speeds up training by avoiding the need to train on the entire dataset at each iteration, which grows with each step.
-\\
-It is important to note that the values stored in the tuples are the ones needed and used to update the Q-values, which are then used for training.
-
 
 \subsection{Metric results}
 
